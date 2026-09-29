@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GO IV 計算</title>
+  <style>
+    :root {
+      --accent: #FFCB05;
+      --text: #1a1a1a;
+      --muted: #555;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+    }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    nav {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    nav a, .lang-btn {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    nav a:hover, .lang-btn:hover { background: #fffef5; }
+    .lang-btn.active { background: var(--accent); font-weight: 600; }
+    main { max-width: 42rem; margin: 0 auto; padding: 1.5rem; }
+    section[hidden] { display: none !important; }
+    h2 { font-size: 1.15rem; margin-top: 1.5rem; }
+    ul { padding-left: 1.25rem; }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">GO IV 計算</h1>
+    <nav aria-label="Site">
+      <a href="index.html" id="nav-home">介紹</a>
+      <a href="privacy.html" id="nav-privacy">隱私權</a>
+      <a href="support.html" id="nav-support">支援</a>
+      <span style="margin-left: auto;"></span>
+      <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">繁中</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <section id="zh" lang="zh-Hant">
+      <p>GO IV 計算是為 Pokémon GO 玩家設計的 IV 計算工具。上傳遊戲內<strong>精靈摘要截圖</strong>，App 會辨識 CP、HP 與星塵需求，並依圖鑑數值<strong>反推可能的 IV 組合</strong>。</p>
+      <h2>主要功能</h2>
+      <ul>
+        <li>以摘要截圖辨識 CP、HP、星塵，計算 IV 與等級</li>
+        <li>支援好友、進化與<strong>三聯盟 PvP</strong>相關的區間參考</li>
+        <li>計算與收藏紀錄保存在<strong>本機</strong>，由您掌控資料</li>
+      </ul>
+      <h2>使用方式</h2>
+      <p>在 Pokémon GO 中打開精靈摘要畫面並截圖，於 App 內選擇該張圖片即可開始計算。歷史紀錄僅保存辨識與計算結果，方便您再次查看。</p>
+    </section>
+    <section id="en" lang="en" hidden>
+      <p>GO IV Calculator helps Pokémon GO players estimate individual values (IVs). Upload an in-game <strong>Pokémon summary screenshot</strong>; the app reads CP, HP, and stardust cost and <strong>infers possible IV combinations</strong> using species data.</p>
+      <h2>Features</h2>
+      <ul>
+        <li>Recognize CP, HP, and stardust from summary screenshots to compute IVs and level</li>
+        <li>Reference ranges for friends, evolution, and <strong>Great / Ultra / Master League PvP</strong></li>
+        <li>Calculations and favorites are stored <strong>on your device</strong></li>
+      </ul>
+      <h2>How to use</h2>
+      <p>Open a Pokémon’s summary in Pokémon GO and take a screenshot, then pick that image in the app to calculate. History keeps recognition and calculation results only—not the photo—for easy review.</p>
+    </section>
+    <footer>
+      <p id="footer-zh">本頁為 GO IV 計算 App 文宣說明。</p>
+      <p id="footer-en" hidden>Informational page for the GO IV Calculator app.</p>
+    </footer>
+  </main>
+  <script>
+    (function () {
+      var navLabels = {
+        zh: { home: '介紹', privacy: '隱私權', support: '支援', title: 'GO IV 計算' },
+        en: { home: 'About', privacy: 'Privacy', support: 'Support', title: 'GO IV Calculator' }
+      };
+      function setLang(lang) {
+        document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+        document.getElementById('zh').hidden = lang !== 'zh';
+        document.getElementById('en').hidden = lang !== 'en';
+        document.getElementById('footer-zh').hidden = lang !== 'zh';
+        document.getElementById('footer-en').hidden = lang !== 'en';
+        document.getElementById('page-title').textContent = navLabels[lang].title;
+        document.getElementById('nav-home').textContent = navLabels[lang].home;
+        document.getElementById('nav-privacy').textContent = navLabels[lang].privacy;
+        document.getElementById('nav-support').textContent = navLabels[lang].support;
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          var on = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+      });
+      if (location.hash === '#en') setLang('en');
+    })();
+  </script>
+</body>
+</html>

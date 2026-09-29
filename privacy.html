@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>隱私權政策 — GO IV 計算</title>
+  <style>
+    :root {
+      --accent: #FFCB05;
+      --text: #1a1a1a;
+      --muted: #555;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+    }
+    header h1 { margin: 0; font-size: 1.35rem; }
+    nav {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    nav a, .lang-btn {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    nav a:hover, .lang-btn:hover { background: #fffef5; }
+    .lang-btn.active { background: var(--accent); font-weight: 600; }
+    main { max-width: 42rem; margin: 0 auto; padding: 1.5rem; }
+    section[hidden] { display: none !important; }
+    h2 { font-size: 1.1rem; margin-top: 1.35rem; }
+    ul { padding-left: 1.25rem; }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">隱私權政策</h1>
+    <nav aria-label="Site">
+      <a href="index.html" id="nav-home">介紹</a>
+      <a href="privacy.html" id="nav-privacy">隱私權</a>
+      <a href="support.html" id="nav-support">支援</a>
+      <span style="margin-left: auto;"></span>
+      <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">繁中</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <section id="zh" lang="zh-Hant">
+      <p>本政策說明 GO IV 計算（以下稱「本 App」）如何處理您的資訊。使用本 App 即表示您理解下列內容。</p>
+      <h2>IV 計算在您的裝置上進行</h2>
+      <p>IV 與等級的推算在您的 iPhone 或 iPad 上完成，不會將您的截圖或計算輸出上傳到開發者的伺服器以進行 IV 演算。</p>
+      <h2>截圖與暫存記憶體</h2>
+      <p>您選擇的精靈摘要截圖僅用於當次上傳與辨識流程，處理期間保留在裝置記憶體中；離開該流程或關閉相關畫面後即釋放，本 App 不會將照片存入相簿或長期儲存空間。</p>
+      <h2>歷史紀錄</h2>
+      <p>本機歷史僅保存辨識與計算結果（例如種類、CP、HP、IV 組合等），<strong>不保存</strong>摘要截圖影像。</p>
+      <h2>圖鑑資料（Firebase Storage）</h2>
+      <p>物種名稱與三圍等<strong>數值 JSON</strong>會從 Firebase Storage（bucket：<code>goiv-app.firebasestorage.app</code>）下載以支援計算。該資料不含寶可夢圖片，本 App 也不從 PokeAPI 等來源載入官方立繪。</p>
+      <h2>當機報告（Firebase Crashlytics）</h2>
+      <p>若日後啟用 Firebase Crashlytics，僅用於收集<strong>未捕捉的當機</strong>與除錯資訊，協助修復穩定性問題。不會上傳螢幕截圖，也不會將 CP、HP、種類等遊戲資料作為自訂紀錄欄位傳送。</p>
+      <h2>廣告（Google AdMob）</h2>
+      <p>若日後顯示廣告，預期僅為<strong>橫幅廣告</strong>。在適用情況下，App 會先透過 Apple 的 App Tracking Transparency 詢問追蹤許可；若您拒絕，廣告請求將以<strong>非個人化</strong>方式處理。</p>
+      <h2>我們不出售個人資料</h2>
+      <p>我們不會出售您的個人資料。</p>
+      <p><em>最後更新：文宣頁建立時。政策隨 App 功能調整時可能更新，請以本頁最新內容為準。</em></p>
+    </section>
+    <section id="en" lang="en" hidden>
+      <p>This policy describes how GO IV Calculator (“the app”) handles information. By using the app, you acknowledge the practices below.</p>
+      <h2>IV calculation on your device</h2>
+      <p>IV and level inference runs on your iPhone or iPad. Your screenshots and calculation results are not uploaded to the developer’s servers for IV computation.</p>
+      <h2>Screenshots and memory</h2>
+      <p>Pokémon summary screenshots you select are used only for the current upload and recognition flow, held in device memory during processing, and released when you leave that flow or dismiss the related screens. The app does not save photos to your photo library or long-term storage.</p>
+      <h2>History</h2>
+      <p>On-device history stores recognition and calculation results only (e.g., species, CP, HP, IV sets). It does <strong>not</strong> store summary screenshot images.</p>
+      <h2>Species data (Firebase Storage)</h2>
+      <p>Numeric JSON (names, base stats, etc.) is downloaded from Firebase Storage (bucket: <code>goiv-app.firebasestorage.app</code>) to power calculations. This data contains no Pokémon artwork; the app does not load official artwork from PokeAPI or similar sources.</p>
+      <h2>Crash reports (Firebase Crashlytics)</h2>
+      <p>If Crashlytics is enabled, it is used only to collect <strong>uncaught crashes</strong> and debugging information to improve stability. Screenshots are not uploaded, and game fields such as CP, HP, or species are not sent as custom log fields.</p>
+      <h2>Advertising (Google AdMob)</h2>
+      <p>If ads are shown, they are expected to be <strong>banner ads</strong> only. Where applicable, the app will ask for tracking permission via Apple’s App Tracking Transparency; if you decline, ad requests are handled in a <strong>non-personalized</strong> manner.</p>
+      <h2>We do not sell personal data</h2>
+      <p>We do not sell your personal information.</p>
+      <p><em>Last updated: when this page was published. This policy may change as app features evolve; refer to this page for the current version.</em></p>
+    </section>
+    <footer>
+      <p id="footer-zh">GO IV 計算 — 隱私權政策</p>
+      <p id="footer-en" hidden>GO IV Calculator — Privacy Policy</p>
+    </footer>
+  </main>
+  <script>
+    (function () {
+      var navLabels = {
+        zh: { home: '介紹', privacy: '隱私權', support: '支援', title: '隱私權政策' },
+        en: { home: 'About', privacy: 'Privacy', support: 'Support', title: 'Privacy Policy' }
+      };
+      function setLang(lang) {
+        document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+        document.getElementById('zh').hidden = lang !== 'zh';
+        document.getElementById('en').hidden = lang !== 'en';
+        document.getElementById('footer-zh').hidden = lang !== 'zh';
+        document.getElementById('footer-en').hidden = lang !== 'en';
+        document.getElementById('page-title').textContent = navLabels[lang].title;
+        document.getElementById('nav-home').textContent = navLabels[lang].home;
+        document.getElementById('nav-privacy').textContent = navLabels[lang].privacy;
+        document.getElementById('nav-support').textContent = navLabels[lang].support;
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          var on = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+      });
+      if (location.hash === '#en') setLang('en');
+    })();
+  </script>
+</body>
+</html>

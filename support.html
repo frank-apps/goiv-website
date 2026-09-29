@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>支援 — GO IV 計算</title>
+  <style>
+    :root {
+      --accent: #FFCB05;
+      --text: #1a1a1a;
+      --muted: #555;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+    }
+    header h1 { margin: 0; font-size: 1.35rem; }
+    nav {
+      margin-top: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    nav a, .lang-btn {
+      display: inline-block;
+      padding: 0.4rem 0.85rem;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+    nav a:hover, .lang-btn:hover { background: #fffef5; }
+    .lang-btn.active { background: var(--accent); font-weight: 600; }
+    main { max-width: 42rem; margin: 0 auto; padding: 1.5rem; }
+    section[hidden] { display: none !important; }
+    h2 { font-size: 1.1rem; margin-top: 1.35rem; }
+    ol { padding-left: 1.25rem; }
+    .contact-box {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+    .contact-pending { color: var(--muted); font-style: italic; }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="page-title">支援</h1>
+    <nav aria-label="Site">
+      <a href="index.html" id="nav-home">介紹</a>
+      <a href="privacy.html" id="nav-privacy">隱私權</a>
+      <a href="support.html" id="nav-support">支援</a>
+      <span style="margin-left: auto;"></span>
+      <button type="button" class="lang-btn active" data-lang="zh" aria-pressed="true">繁中</button>
+      <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <section id="zh" lang="zh-Hant">
+      <p>以下是 GO IV 計算常見使用說明。若問題仍無法解決，請寄信到下方支援信箱。</p>
+      <h2>如何用摘要截圖計算 IV</h2>
+      <ol>
+        <li>在 Pokémon GO 打開精靈的<strong>摘要</strong>畫面（顯示 CP、HP、星塵等）。</li>
+        <li>使用系統截圖功能保存該畫面。</li>
+        <li>在本 App 中選擇該張圖片，等待辨識完成後查看 IV 與等級結果。</li>
+        <li>若有多組可能 IV，可依畫面提示比對遊戲內實際數值。</li>
+      </ol>
+      <h2>紀錄與收藏</h2>
+      <p>計算結果可加入本機收藏；歷史列表僅保留辨識與計算資料，不會保留您上傳的截圖照片。刪除 App 會清除本機資料。</p>
+      <h2>PvP 與進化參考</h2>
+      <p>App 可提供與好友、進化及三聯盟 PvP 相關的 IV 區間參考，協助您評估精靈在對戰或進化前的潛力。詳細操作請依 App 內各分頁說明。</p>
+      <h2>圖鑑資料無法載入</h2>
+      <p>物種數值需從網路下載。請確認裝置已連線，並稍後再試；若長時間失敗，可能是服務暫時不可用。</p>
+      <h2>聯絡我們</h2>
+      <div class="contact-box">
+        <p><a href="mailto:mikru168@gmail.com">mikru168@gmail.com</a></p>
+      </div>
+    </section>
+    <section id="en" lang="en" hidden>
+      <p>Below is guidance for using GO IV Calculator. If you still need help, email the support address below.</p>
+      <h2>Calculate IVs from a summary screenshot</h2>
+      <ol>
+        <li>In Pokémon GO, open the Pokémon’s <strong>summary</strong> screen (CP, HP, stardust, etc.).</li>
+        <li>Take a system screenshot of that screen.</li>
+        <li>In the app, select that image and wait for recognition to finish, then review IV and level results.</li>
+        <li>If multiple IV sets are possible, compare with in-game values as prompted.</li>
+      </ol>
+      <h2>History and favorites</h2>
+      <p>You can favorite results on your device. History keeps recognition and calculation data only—not uploaded screenshot images. Removing the app clears local data.</p>
+      <h2>PvP and evolution references</h2>
+      <p>The app may show IV range references for friends, evolution, and Great / Ultra / Master League PvP. See in-app sections for details.</p>
+      <h2>Species data won’t load</h2>
+      <p>Species stats are downloaded over the network. Check your connection and try again; prolonged failures may mean a temporary service issue.</p>
+      <h2>Contact us</h2>
+      <div class="contact-box">
+        <p><a href="mailto:mikru168@gmail.com">mikru168@gmail.com</a></p>
+      </div>
+    </section>
+    <footer>
+      <p id="footer-zh">GO IV 計算 — 支援</p>
+      <p id="footer-en" hidden>GO IV Calculator — Support</p>
+    </footer>
+  </main>
+  <script>
+    (function () {
+      var navLabels = {
+        zh: { home: '介紹', privacy: '隱私權', support: '支援', title: '支援' },
+        en: { home: 'About', privacy: 'Privacy', support: 'Support', title: 'Support' }
+      };
+      function setLang(lang) {
+        document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+        document.getElementById('zh').hidden = lang !== 'zh';
+        document.getElementById('en').hidden = lang !== 'en';
+        document.getElementById('footer-zh').hidden = lang !== 'zh';
+        document.getElementById('footer-en').hidden = lang !== 'en';
+        document.getElementById('page-title').textContent = navLabels[lang].title;
+        document.getElementById('nav-home').textContent = navLabels[lang].home;
+        document.getElementById('nav-privacy').textContent = navLabels[lang].privacy;
+        document.getElementById('nav-support').textContent = navLabels[lang].support;
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          var on = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('active', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () { setLang(btn.getAttribute('data-lang')); });
+      });
+      if (location.hash === '#en') setLang('en');
+    })();
+  </script>
+</body>
+</html>
