@@ -17,7 +17,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       background: #fff;
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
     header {
       border-bottom: 3px solid var(--accent);
@@ -44,12 +44,42 @@
     }
     nav a:hover, .lang-btn:hover { background: #fffef5; }
     .lang-btn.active { background: var(--accent); font-weight: 600; }
-    main { max-width: 42rem; margin: 0 auto; padding: 1.5rem; }
+    main { max-width: 46rem; margin: 0 auto; padding: 1.5rem; }
     section[hidden] { display: none !important; }
-    h2 { font-size: 1.15rem; margin-top: 1.5rem; }
-    ul { padding-left: 1.25rem; }
+    h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; }
+    h3 { font-size: 1.05rem; margin-top: 1.25rem; margin-bottom: 0.35rem; }
+    ul, ol { padding-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .lead { font-size: 1.05rem; }
+    figure.manual-shot {
+      margin: 1rem 0 1.5rem;
+      padding: 0;
+      max-width: 280px;
+    }
+    figure.manual-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    figure.manual-shot figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .toc {
+      background: #fffef5;
+      border: 2px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .toc ol { margin: 0; }
     footer {
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       padding-top: 1rem;
       border-top: 1px solid #eee;
       font-size: 0.85rem;
@@ -71,30 +101,163 @@
   </header>
   <main>
     <section id="zh" lang="zh-Hant">
-      <p>GO IV 計算是為 Pokémon GO 玩家設計的 IV 計算工具。上傳遊戲內<strong>精靈摘要截圖</strong>，App 會辨識 CP、HP 與星塵需求，並依圖鑑數值<strong>反推可能的 IV 組合</strong>。</p>
-      <h2>主要功能</h2>
+      <p class="lead">GO IV 計算是為 Pokémon GO 玩家設計的 IV 計算工具。上傳遊戲內<strong>精靈摘要截圖</strong>，App 在裝置上辨識 CP、HP 與強化星塵，並依圖鑑數值<strong>反推可能的 IV 組合與等級</strong>。不提供手動輸入數字，也不做螢幕側錄。</p>
+
+      <h2>產品重點</h2>
       <ul>
-        <li>以摘要截圖辨識 CP、HP、星塵，計算 IV 與等級</li>
-        <li>支援好友、進化與<strong>三聯盟 PvP</strong>相關的區間參考</li>
-        <li>計算與收藏紀錄保存在<strong>本機</strong>，由您掌控資料</li>
+        <li><strong>摘要截圖計算</strong>：一次選一張精靈摘要，辨識後直接顯示結果；無效圖片會提示錯誤，不會寫入歷史。</li>
+        <li><strong>圖鑑</strong>：瀏覽三圍、屬性、進化、技能與各等級 CP 區間；圖鑑資料可從遠端更新，離線時使用 App 內建備份。</li>
+        <li><strong>本機資料</strong>：計算歷史與收藏只存在您的 iPhone／iPad；歷史保留辨識結果與相簿識別碼，<strong>不儲存截圖檔案</strong>。</li>
+        <li><strong>進階參考</strong>：結果頁可開啟好夥伴加成；圖鑑與收藏可參考進化後等級 50 最大 CP，以及三聯盟 PvP 區間（超級／高級／大師）。</li>
       </ul>
-      <h2>使用方式</h2>
-      <p>在 Pokémon GO 中打開精靈摘要畫面並截圖，於 App 內選擇該張圖片即可開始計算。歷史紀錄僅保存辨識與計算結果，方便您再次查看。</p>
+
+      <h2>操作手冊</h2>
+      <p>以下截圖來自 iOS 模擬器上的 App 介面（不含遊戲內畫面）。實機外觀與字級可能略有差異。</p>
+      <nav class="toc" aria-label="手冊目次">
+        <ol>
+          <li><a href="#zh-dex">圖鑑</a></li>
+          <li><a href="#zh-iv">IV 計算與選圖</a></li>
+          <li><a href="#zh-trainer">訓練師等級</a></li>
+          <li><a href="#zh-results">結果與收藏</a></li>
+          <li><a href="#zh-history">歷史與相簿排除</a></li>
+        </ol>
+      </nav>
+
+      <h3 id="zh-dex">1. 圖鑑</h3>
+      <p>底部 Tab「精靈」可搜尋編號、中文或英文名，點選牌卡進入詳細頁。詳細頁提供三圍、屬性相剋、進化鏈、技能與等級 50 最大 CP／HP、各等級 CP 區間。<strong>圖鑑內不能手動輸入 CP 計算</strong>，計算請使用 IV Tab。</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-dex-list.png" width="402" height="874" alt="精靈圖鑑列表與搜尋列">
+        <figcaption>圖鑑列表：大型標題、搜尋框與水平牌卡。</figcaption>
+      </figure>
+      <figure class="manual-shot">
+        <img src="manual/manual-dex-detail.png" width="402" height="874" alt="妙蛙種子圖鑑詳細頁">
+        <figcaption>詳細頁範例：三圍、最高 CP／HP、屬性與性別比例等。</figcaption>
+      </figure>
+
+      <h3 id="zh-iv">2. IV 計算與選圖</h3>
+      <ol>
+        <li>在 Pokémon GO 中對<strong>精靈摘要</strong>（含 CP、HP、強化星塵）截圖。</li>
+        <li>開啟 App 的 IV Tab，點<strong>「幫精靈評價」</strong>。</li>
+        <li>首次使用需允許相簿存取，以便選圖；建議選擇<strong>允許完整取用</strong>（僅用於您主動選圖，見<a href="privacy.html">隱私權</a>）。</li>
+        <li>在「選擇截圖」格狀清單中點一張摘要；辨識成功會在同一流程顯示結果，可加入收藏或關閉。</li>
+      </ol>
+      <figure class="manual-shot">
+        <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV 計算首頁與幫精靈評價按鈕">
+        <figcaption>IV Tab：訓練師等級、清除歷史、說明與「幫精靈評價」。</figcaption>
+      </figure>
+      <figure class="manual-shot">
+        <img src="manual/manual-album-picker.png" width="402" height="874" alt="選擇截圖與相簿權限說明">
+        <figcaption>選圖時的相簿權限說明（系統對話框）。</figcaption>
+      </figure>
+      <p>問號可展開說明：歷史保留 90 天、可左滑刪除單筆；收藏不會因過期而刪除。</p>
+
+      <h3 id="zh-trainer">3. 訓練師等級</h3>
+      <p>IV Tab 左上角<strong>「等級」</strong>膠囊可設定訓練師等級（或不設定）。等級用於摘要弧線推斷精靈等級上限，<strong>不參與 CP 公式</strong>。若仍有多個可能等級，結果頁會提示補上訓練師等級或強化後再算。</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-trainer-level.png" width="402" height="874" alt="設定訓練師等級轉輪">
+        <figcaption>訓練師等級轉輪：不設定或等級 1–50，點「完成」儲存。</figcaption>
+      </figure>
+
+      <h3 id="zh-results">4. 結果與收藏</h3>
+      <p>結果頁顯示 IV 評價、攻擊／防禦／體力 IV、等級滑桿與建議文案。範圍很大時圓環可能顯示「?」。可開啟<strong>好夥伴加成</strong>查看加成後 CP／HP。滿意的一組 IV 可點右上角星號加入收藏。</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-results.png" width="402" height="874" alt="IV 結果頁範例">
+        <figcaption>結果頁：評價、三圍 IV、等級滑桿與好夥伴加成。</figcaption>
+      </figure>
+      <p>底部 Tab「收藏」可搜尋已儲存的 IV 組合；點牌卡會載入當初收藏的那一組（不重算全部組合）。上架前範例牌卡會移除，僅保留您自己的收藏。</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-favorites.png" width="402" height="874" alt="收藏列表">
+        <figcaption>收藏列表：IV 範圍、CP、HP、星塵與進化後 CP 參考。</figcaption>
+      </figure>
+
+      <h3 id="zh-history">5. 歷史與相簿排除</h3>
+      <ul>
+        <li>成功計算後，該張照片的相簿識別碼會記在歷史；再次開啟選圖時，<strong>同一張摘要會從格狀清單隱藏</strong>，避免重複計算。</li>
+        <li>在 IV Tab 左滑刪除單筆歷史，或點右上角垃圾桶清除全部（會先確認；<strong>不刪收藏</strong>）後，該照片會重新出現在選圖清單。</li>
+        <li>超過 90 天的歷史會在開啟 IV Tab 時自動清除；收藏不受影響。</li>
+      </ul>
     </section>
+
     <section id="en" lang="en" hidden>
-      <p>GO IV Calculator helps Pokémon GO players estimate individual values (IVs). Upload an in-game <strong>Pokémon summary screenshot</strong>; the app reads CP, HP, and stardust cost and <strong>infers possible IV combinations</strong> using species data.</p>
-      <h2>Features</h2>
+      <p class="lead">GO IV Calculator helps Pokémon GO players estimate IVs from in-game <strong>summary screenshots</strong>. The app reads CP, HP, and power-up stardust on your device and infers possible IV combinations and level. There is no manual numeric entry and no screen recording.</p>
+
+      <h2>Highlights</h2>
       <ul>
-        <li>Recognize CP, HP, and stardust from summary screenshots to compute IVs and level</li>
-        <li>Reference ranges for friends, evolution, and <strong>Great / Ultra / Master League PvP</strong></li>
-        <li>Calculations and favorites are stored <strong>on your device</strong></li>
+        <li><strong>Summary screenshots</strong>: Pick one summary per calculation; invalid images show an error and are not saved to history.</li>
+        <li><strong>Dex</strong>: Browse stats, types, evolution, moves, and CP ranges; catalog may update from the network with an offline bundled fallback.</li>
+        <li><strong>On-device data</strong>: History and favorites stay on your device; history stores results and a photo identifier, <strong>not the image file</strong>.</li>
+        <li><strong>Extras</strong>: Buddy boost on the results screen; Great / Ultra / Master League PvP ranges and post-evolution level-50 CP references.</li>
       </ul>
-      <h2>How to use</h2>
-      <p>Open a Pokémon’s summary in Pokémon GO and take a screenshot, then pick that image in the app to calculate. History keeps recognition and calculation results only—not the photo—for easy review.</p>
+
+      <h2>User guide</h2>
+      <p>Screenshots below are from the app UI in the iOS Simulator (no in-game artwork). Layout may vary slightly on a physical device.</p>
+      <nav class="toc" aria-label="Guide contents">
+        <ol>
+          <li><a href="#en-dex">Dex</a></li>
+          <li><a href="#en-iv">IV &amp; picking a screenshot</a></li>
+          <li><a href="#en-trainer">Trainer level</a></li>
+          <li><a href="#en-results">Results &amp; Saved</a></li>
+          <li><a href="#en-history">History &amp; album exclusion</a></li>
+        </ol>
+      </nav>
+
+      <h3 id="en-dex">1. Dex</h3>
+      <p>Open the <strong>Dex</strong> tab to search by number or name and open a species page for stats, types, evolution, moves, and CP tables. <strong>IV calculation is only available from the IV tab.</strong></p>
+      <figure class="manual-shot">
+        <img src="manual/manual-dex-list.png" width="402" height="874" alt="Dex list and search">
+        <figcaption>Dex list with search and horizontal cards.</figcaption>
+      </figure>
+      <figure class="manual-shot">
+        <img src="manual/manual-dex-detail.png" width="402" height="874" alt="Bulbasaur detail page">
+        <figcaption>Detail example: base stats, max CP/HP, types, and more.</figcaption>
+      </figure>
+
+      <h3 id="en-iv">2. IV &amp; picking a screenshot</h3>
+      <ol>
+        <li>Take a <strong>summary screenshot</strong> in Pokémon GO (CP, HP, power-up stardust visible).</li>
+        <li>On the IV tab, tap <strong>Appraise Pokémon</strong>.</li>
+        <li>Grant photo library access when prompted so you can pick an image (see <a href="privacy.html">Privacy</a>).</li>
+        <li>Tap one thumbnail; on success the result appears in the same flow—you can favorite or close.</li>
+      </ol>
+      <figure class="manual-shot">
+        <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV home screen">
+        <figcaption>IV tab: trainer level, clear history, help, and the pick button.</figcaption>
+      </figure>
+      <figure class="manual-shot">
+        <img src="manual/manual-album-picker.png" width="402" height="874" alt="Photo access prompt when picking">
+        <figcaption>System photo access dialog when choosing a screenshot.</figcaption>
+      </figure>
+
+      <h3 id="en-trainer">3. Trainer level</h3>
+      <p>Tap the <strong>Level</strong> capsule on the IV tab to set your trainer level (or leave unset). This refines arc-based level caps and does <strong>not</strong> change the CP formula.</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-trainer-level.png" width="402" height="874" alt="Trainer level picker">
+        <figcaption>Trainer level wheel: unset or levels 1–50, then Done.</figcaption>
+      </figure>
+
+      <h3 id="en-results">4. Results &amp; Saved</h3>
+      <p>The results screen shows grade, IV stats, level slider, and tips. Use <strong>Buddy boost</strong> to see boosted CP/HP. Tap the star to save the selected IV set to Saved.</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-results.png" width="402" height="874" alt="Results screen example">
+        <figcaption>Results: grade ring, IV columns, level slider, buddy boost.</figcaption>
+      </figure>
+      <p>The <strong>Saved</strong> tab lists stored IV sets; tapping a card reloads that saved combination only.</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-favorites.png" width="402" height="874" alt="Saved list">
+        <figcaption>Saved list with IV range, CP, HP, stardust, and evolution CP hints.</figcaption>
+      </figure>
+
+      <h3 id="en-history">5. History &amp; album exclusion</h3>
+      <ul>
+        <li>After a successful calculation, that photo’s library identifier is stored; the same summary is <strong>hidden in the picker grid</strong> until you remove its history entry.</li>
+        <li>Swipe to delete one history row, or use Clear all (with confirmation; <strong>does not delete Saved</strong>) to show the photo again.</li>
+        <li>History older than 90 days is removed when you open the IV tab; Saved items are kept.</li>
+      </ul>
     </section>
+
     <footer>
-      <p id="footer-zh">本頁為 GO IV 計算 App 文宣說明。</p>
-      <p id="footer-en" hidden>Informational page for the GO IV Calculator app.</p>
+      <p id="footer-zh">本頁為 GO IV 計算 App 文宣與操作說明。</p>
+      <p id="footer-en" hidden>Informational and user-guide page for GO IV Calculator.</p>
     </footer>
   </main>
   <script>
