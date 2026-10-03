@@ -1,6 +1,6 @@
-# GO IV
+# GO IV 計算
 
-[GO IV](https://frank-apps.github.io/goiv-website/)（GO IV Calculator）是為 Pokémon GO 玩家設計的 IV 計算 App 官方說明站，內含介紹（含操作手冊與模擬器截圖 `manual/`）、隱私權與支援頁面。
+[GO IV 計算](https://frank-apps.github.io/goiv-website/)（GO IV Calculator）是為 Pokémon GO 玩家設計的 IV 計算 App 官方說明站，內含介紹（含操作手冊與模擬器截圖 `manual/`）、隱私權與支援頁面。
 
 ## 這個 App 做什麼
 
