@@ -44,17 +44,35 @@
     }
     nav a:hover, .lang-btn:hover { background: #fffef5; }
     .lang-btn.active { background: var(--accent); font-weight: 600; }
-    main { max-width: 46rem; margin: 0 auto; padding: 1.5rem; }
+    main { max-width: 52rem; margin: 0 auto; padding: 1.5rem; }
     section[hidden] { display: none !important; }
     h2 { font-size: 1.2rem; margin-top: 2rem; margin-bottom: 0.5rem; }
     h3 { font-size: 1.05rem; margin-top: 1.25rem; margin-bottom: 0.35rem; }
     ul, ol { padding-left: 1.25rem; }
     li { margin-bottom: 0.35rem; }
     .lead { font-size: 1.05rem; }
+    .manual-shots-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.25rem;
+      margin: 1rem 0 1.5rem;
+      align-items: flex-start;
+    }
     figure.manual-shot {
       margin: 1rem 0 1.5rem;
       padding: 0;
       max-width: 280px;
+    }
+    .manual-shots-row figure.manual-shot {
+      flex: 1 1 12rem;
+      max-width: calc(50% - 0.625rem);
+      margin: 0;
+    }
+    @media (max-width: 540px) {
+      .manual-shots-row figure.manual-shot {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
     }
     figure.manual-shot img {
       display: block;
@@ -125,14 +143,16 @@
 
       <h3 id="zh-dex">1. 圖鑑</h3>
       <p>底部 Tab「精靈」可搜尋編號、中文或英文名，點選牌卡進入詳細頁。詳細頁提供三圍、屬性相剋、進化鏈、技能與等級 50 最大 CP／HP、各等級 CP 區間。<strong>圖鑑內不能手動輸入 CP 計算</strong>，計算請使用 IV Tab。</p>
-      <figure class="manual-shot">
-        <img src="manual/manual-dex-list.png" width="402" height="874" alt="精靈圖鑑列表與搜尋列">
-        <figcaption>圖鑑列表：大型標題、搜尋框與水平牌卡。</figcaption>
-      </figure>
-      <figure class="manual-shot">
-        <img src="manual/manual-dex-detail.png" width="402" height="874" alt="妙蛙種子圖鑑詳細頁">
-        <figcaption>詳細頁範例：三圍、最高 CP／HP、屬性與性別比例等。</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-dex-list.png" width="402" height="874" alt="精靈圖鑑列表與搜尋列">
+          <figcaption>圖鑑列表：大型標題、搜尋框與水平牌卡。</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-dex-detail.png" width="402" height="874" alt="妙蛙種子圖鑑詳細頁">
+          <figcaption>詳細頁範例：三圍、最高 CP／HP、屬性與性別比例等。</figcaption>
+        </figure>
+      </div>
 
       <h3 id="zh-iv">2. IV 計算與選圖</h3>
       <ol>
@@ -141,14 +161,16 @@
         <li>首次使用需允許相簿存取，以便選圖；建議選擇<strong>允許完整取用</strong>（僅用於您主動選圖，見<a href="privacy.html">隱私權</a>）。</li>
         <li>在「選擇截圖」格狀清單中點一張摘要；辨識成功會在同一流程顯示結果，可加入收藏或關閉。</li>
       </ol>
-      <figure class="manual-shot">
-        <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV 計算首頁與幫精靈評價按鈕">
-        <figcaption>IV Tab：訓練師等級、清除歷史、說明與「幫精靈評價」。</figcaption>
-      </figure>
-      <figure class="manual-shot">
-        <img src="manual/manual-album-picker.png" width="402" height="874" alt="選擇截圖與相簿權限說明">
-        <figcaption>選圖時的相簿權限說明（系統對話框）。</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV 計算首頁與幫精靈評價按鈕">
+          <figcaption>IV Tab：訓練師等級、清除歷史、說明與「幫精靈評價」。</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-album-picker.png" width="402" height="874" alt="選擇截圖與相簿權限說明">
+          <figcaption>選圖時的相簿權限說明（系統對話框）。</figcaption>
+        </figure>
+      </div>
       <p>問號可展開說明：歷史保留 90 天、可左滑刪除單筆；收藏不會因過期而刪除。</p>
 
       <h3 id="zh-trainer">3. 訓練師等級</h3>
@@ -160,15 +182,17 @@
 
       <h3 id="zh-results">4. 結果與收藏</h3>
       <p>結果頁顯示 IV 評價、攻擊／防禦／體力 IV、等級滑桿與建議文案。範圍很大時圓環可能顯示「?」。可開啟<strong>好夥伴加成</strong>查看加成後 CP／HP。滿意的一組 IV 可點右上角星號加入收藏。</p>
-      <figure class="manual-shot">
-        <img src="manual/manual-results.png" width="402" height="874" alt="IV 結果頁範例">
-        <figcaption>結果頁：評價、三圍 IV、等級滑桿與好夥伴加成。</figcaption>
-      </figure>
       <p>底部 Tab「收藏」可搜尋已儲存的 IV 組合；點牌卡會載入當初收藏的那一組（不重算全部組合）。上架前範例牌卡會移除，僅保留您自己的收藏。</p>
-      <figure class="manual-shot">
-        <img src="manual/manual-favorites.png" width="402" height="874" alt="收藏列表">
-        <figcaption>收藏列表：IV 範圍、CP、HP、星塵與進化後 CP 參考。</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-results.png" width="402" height="874" alt="IV 結果頁範例">
+          <figcaption>結果頁：評價、三圍 IV、等級滑桿與好夥伴加成。</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-favorites.png" width="402" height="874" alt="收藏列表">
+          <figcaption>收藏列表：IV 範圍、CP、HP、星塵與進化後 CP 參考。</figcaption>
+        </figure>
+      </div>
 
       <h3 id="zh-history">5. 歷史與相簿排除</h3>
       <ul>
@@ -203,14 +227,16 @@
 
       <h3 id="en-dex">1. Dex</h3>
       <p>Open the <strong>Dex</strong> tab to search by number or name and open a species page for stats, types, evolution, moves, and CP tables. <strong>IV calculation is only available from the IV tab.</strong></p>
-      <figure class="manual-shot">
-        <img src="manual/manual-dex-list.png" width="402" height="874" alt="Dex list and search">
-        <figcaption>Dex list with search and horizontal cards.</figcaption>
-      </figure>
-      <figure class="manual-shot">
-        <img src="manual/manual-dex-detail.png" width="402" height="874" alt="Bulbasaur detail page">
-        <figcaption>Detail example: base stats, max CP/HP, types, and more.</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-dex-list.png" width="402" height="874" alt="Dex list and search">
+          <figcaption>Dex list with search and horizontal cards.</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-dex-detail.png" width="402" height="874" alt="Bulbasaur detail page">
+          <figcaption>Detail example: base stats, max CP/HP, types, and more.</figcaption>
+        </figure>
+      </div>
 
       <h3 id="en-iv">2. IV &amp; picking a screenshot</h3>
       <ol>
@@ -219,14 +245,16 @@
         <li>Grant photo library access when prompted so you can pick an image (see <a href="privacy.html">Privacy</a>).</li>
         <li>Tap one thumbnail; on success the result appears in the same flow—you can favorite or close.</li>
       </ol>
-      <figure class="manual-shot">
-        <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV home screen">
-        <figcaption>IV tab: trainer level, clear history, help, and the pick button.</figcaption>
-      </figure>
-      <figure class="manual-shot">
-        <img src="manual/manual-album-picker.png" width="402" height="874" alt="Photo access prompt when picking">
-        <figcaption>System photo access dialog when choosing a screenshot.</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-iv-home.png" width="402" height="874" alt="IV home screen">
+          <figcaption>IV tab: trainer level, clear history, help, and the pick button.</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-album-picker.png" width="402" height="874" alt="Photo access prompt when picking">
+          <figcaption>System photo access dialog when choosing a screenshot.</figcaption>
+        </figure>
+      </div>
 
       <h3 id="en-trainer">3. Trainer level</h3>
       <p>Tap the <strong>Level</strong> capsule on the IV tab to set your trainer level (or leave unset). This refines arc-based level caps and does <strong>not</strong> change the CP formula.</p>
@@ -237,15 +265,17 @@
 
       <h3 id="en-results">4. Results &amp; Saved</h3>
       <p>The results screen shows grade, IV stats, level slider, and tips. Use <strong>Buddy boost</strong> to see boosted CP/HP. Tap the star to save the selected IV set to Saved.</p>
-      <figure class="manual-shot">
-        <img src="manual/manual-results.png" width="402" height="874" alt="Results screen example">
-        <figcaption>Results: grade ring, IV columns, level slider, buddy boost.</figcaption>
-      </figure>
       <p>The <strong>Saved</strong> tab lists stored IV sets; tapping a card reloads that saved combination only.</p>
-      <figure class="manual-shot">
-        <img src="manual/manual-favorites.png" width="402" height="874" alt="Saved list">
-        <figcaption>Saved list with IV range, CP, HP, stardust, and evolution CP hints.</figcaption>
-      </figure>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-results.png" width="402" height="874" alt="Results screen example">
+          <figcaption>Results: grade ring, IV columns, level slider, buddy boost.</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-favorites.png" width="402" height="874" alt="Saved list">
+          <figcaption>Saved list with IV range, CP, HP, stardust, and evolution CP hints.</figcaption>
+        </figure>
+      </div>
 
       <h3 id="en-history">5. History &amp; album exclusion</h3>
       <ul>
