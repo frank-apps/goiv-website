@@ -120,22 +120,25 @@
   </header>
   <main>
     <section id="zh" lang="zh-Hant">
-      <p class="lead">GO IV 計算是為 Pokémon GO 玩家設計的 IV 計算工具。上傳遊戲內<strong>精靈摘要截圖</strong>，App 在裝置上辨識 CP、HP 與強化星塵，並依圖鑑數值<strong>反推可能的 IV 組合與等級</strong>。不提供手動輸入數字，也不做螢幕側錄。</p>
+      <p class="lead">GO IV 計算從相簿選 <strong>1 張遊戲內精靈摘要截圖</strong>，在裝置上辨識名稱、CP、HP 與強化星塵，並依圖鑑數值<strong>反推可能的 IV 組合與等級</strong>。計算、歷史與收藏都留在這台 iPhone 或 iPad。</p>
 
-      <h2>產品重點</h2>
+      <h2>產品介紹</h2>
       <ul>
-        <li><strong>摘要截圖計算</strong>：一次選一張精靈摘要，辨識後直接顯示結果；無效圖片會提示錯誤，不會寫入歷史。</li>
-        <li><strong>圖鑑</strong>：瀏覽三圍、屬性、進化、技能與各等級 CP 區間；圖鑑資料可從遠端更新，離線時使用 App 內建備份。</li>
-        <li><strong>本機資料</strong>：計算歷史與收藏只存在您的 iPhone／iPad；歷史保留辨識結果與相簿識別碼，<strong>不儲存截圖檔案</strong>。</li>
-        <li><strong>進階參考</strong>：結果頁可開啟好夥伴加成；圖鑑與收藏可參考進化後等級 50 最大 CP，以及三聯盟 PvP 區間（超級／高級／大師）。</li>
+        <li><strong>摘要截圖</strong>：一次一張。讀得到名稱、CP、HP 與強化星塵就直接顯示結果。圖裡缺這些資料時會提示錯誤，不會寫進歷史。</li>
+        <li><strong>三個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」。圖示分別是足跡、函數與星星。</li>
+        <li><strong>圖鑑</strong>：用編號、中文或英文名搜尋，點牌卡看三圍、屬性、進化、技能，以及各等級 CP、HP。進化後等級 50 的最大 CP、HP 只作參考。圖鑑資料可從 Firebase Storage 的 <code>catalog/species.json</code> 更新；離線時用 App 內建備份。</li>
+        <li><strong>訓練師等級</strong>：可選。用來對齊摘要上的等級範圍，不進入 CP 公式。沒設定時，同一組星塵仍可能對應兩個等級。</li>
+        <li><strong>結果</strong>：百分比環、攻擊／防禦／體力 IV、等級滑桿與下一步建議。可開啟好夥伴加成，看該等級加成後的 CP、HP。範圍很寬時圓環會顯示「?」。結果頁不列出聯盟對戰區間。</li>
+        <li><strong>本機資料</strong>：歷史只存辨識結果與相簿識別碼，<strong>不存截圖檔</strong>。收藏只存你點下的那一組 IV。</li>
+        <li><strong>廣告</strong>：IV 頁在「幫精靈評價」下方可能出現原生廣告，結果頁底部可能有橫幅。圖鑑與收藏第一層沒有廣告。第一次會問相簿權限；廣告可能再問追蹤許可（ATT），拒絕後改為非個人化。細節見<a href="privacy.html">隱私權</a>。</li>
       </ul>
 
       <h2>操作手冊</h2>
-      <p>圖鑑、IV、結果與收藏使用不含遊戲內畫面的介面示意。選圖權限與訓練師等級仍為模擬器截圖。實機外觀與字級可能略有差異。</p>
+      <p>下面的圖鑑、IV、結果與收藏是不含遊戲內畫面的介面示意。選圖權限與訓練師等級仍是模擬器畫面。實機字級可能略有不同。</p>
       <nav class="toc" aria-label="手冊目次">
         <ol>
           <li><a href="#zh-dex">圖鑑</a></li>
-          <li><a href="#zh-iv">IV 計算與選圖</a></li>
+          <li><a href="#zh-iv">IV 與選圖</a></li>
           <li><a href="#zh-trainer">訓練師等級</a></li>
           <li><a href="#zh-results">結果與收藏</a></li>
           <li><a href="#zh-history">歷史與相簿排除</a></li>
@@ -143,7 +146,7 @@
       </nav>
 
       <h3 id="zh-dex">1. 圖鑑</h3>
-      <p>底部 Tab「精靈」可搜尋編號、中文或英文名，點選牌卡進入詳細頁。詳細頁提供三圍、屬性相剋、進化鏈、技能與等級 50 最大 CP／HP、各等級 CP 區間。<strong>圖鑑內不能手動輸入 CP 計算</strong>，計算請使用 IV Tab。</p>
+      <p>點底部「精靈」。搜尋框可填編號、中文或英文名。點一列進入詳細頁，可看三圍、屬性、進化鏈、技能，並用滑桿看各等級的 CP、HP 範圍。進化後等級 50 的最大 CP、HP 標在進化區，只供對照。圖鑑頁不計算 IV，也沒有廣告。</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-zh-2-pokedex.jpg" width="402" height="874" alt="用編號或名字找：精靈圖鑑列表">
@@ -155,12 +158,13 @@
         </figure>
       </div>
 
-      <h3 id="zh-iv">2. IV 計算與選圖</h3>
+      <h3 id="zh-iv">2. IV 與選圖</h3>
       <ol>
-        <li>在 Pokémon GO 中對<strong>精靈摘要</strong>（含 CP、HP、強化星塵）截圖。</li>
-        <li>開啟 App 的 IV Tab，點<strong>「幫精靈評價」</strong>。</li>
-        <li>首次使用需允許相簿存取，以便選圖；建議選擇<strong>允許完整取用</strong>（僅用於您主動選圖，見<a href="privacy.html">隱私權</a>）。</li>
-        <li>在「選擇截圖」格狀清單中點一張摘要；辨識成功會在同一流程顯示結果，可加入收藏或關閉。</li>
+        <li>在遊戲裡打開一隻精靈的摘要（畫面上要有 CP、HP 與強化星塵），截一張圖存進相簿。</li>
+        <li>打開 App 的 IV Tab，點黃色按鈕<strong>「幫精靈評價」</strong>。</li>
+        <li>第一次選圖會詢問相簿權限。請允許存取，App 才能列出照片。說明見<a href="privacy.html">隱私權</a>。</li>
+        <li>在格狀清單點一張摘要。畫面上會先顯示「辨識中」，接著「計算中」。</li>
+        <li>辨識成功後，同一頁蓋上結果。可加入收藏，或點關閉回到 IV 頁。</li>
       </ol>
       <div class="manual-shots-row">
         <figure class="manual-shot">
@@ -169,21 +173,21 @@
         </figure>
         <figure class="manual-shot">
           <img src="manual/manual-album-picker.png" width="402" height="874" alt="選擇截圖與相簿權限說明">
-          <figcaption>選圖時的相簿權限說明（系統對話框）。</figcaption>
+          <figcaption>選圖時的相簿權限說明（系統對話框）。對話框預覽裡的照片是相簿內容，不是本 App 的畫面。</figcaption>
         </figure>
       </div>
-      <p>問號可展開說明：歷史保留 90 天、可左滑刪除單筆；收藏不會因過期而刪除。</p>
+      <p>黃色按鈕下方可能有一則原生廣告，再往下是計算歷史。問號會說明：歷史留 90 天、沒有筆數上限、左滑可刪一筆；收藏不會過期。</p>
 
       <h3 id="zh-trainer">3. 訓練師等級</h3>
-      <p>IV Tab 左上角<strong>「等級」</strong>膠囊可設定訓練師等級（或不設定）。等級用於摘要弧線推斷精靈等級上限，<strong>不參與 CP 公式</strong>。若仍有多個可能等級，結果頁會提示補上訓練師等級或強化後再算。</p>
+      <p>IV 頁左上角黃色膠囊是訓練師等級，可設 1–50，或選不設定，再點「完成」。它只用來對齊摘要上的等級，不改 CP 算法。同一組星塵若仍對到兩個等級，結果頁會請你核對訓練師等級，或強化一級再算。</p>
       <figure class="manual-shot">
         <img src="manual/manual-trainer-level.png" width="402" height="874" alt="設定訓練師等級轉輪">
         <figcaption>訓練師等級轉輪：不設定或等級 1–50，點「完成」儲存。</figcaption>
       </figure>
 
       <h3 id="zh-results">4. 結果與收藏</h3>
-      <p>結果頁顯示 IV 評價、攻擊／防禦／體力 IV、等級滑桿與建議文案。範圍很大時圓環可能顯示「?」。可開啟<strong>好夥伴加成</strong>查看加成後 CP／HP。滿意的一組 IV 可點右上角星號加入收藏。</p>
-      <p>底部 Tab「收藏」可搜尋已儲存的 IV 組合；點牌卡會載入當初收藏的那一組（不重算全部組合）。</p>
+      <p>結果頁有百分比環、攻擊／防禦／體力 IV、等級滑桿與建議。範圍超過約 20 個百分點時，圓環顯示「?」。打開「好夥伴加成」後，該等級的 CP、HP 會標出加成後的數字。右上角星號把<strong>目前這一組</strong>存進收藏。左上角關閉回到 IV 頁。結果頁底部可能有橫幅廣告。這一頁不顯示聯盟對戰區間。</p>
+      <p>底部「收藏」可搜尋名稱、編號或 CP。點牌卡會先顯示「載入中…」，再開結果，而且只呈現當初收藏的那一組 IV。收藏第一層沒有廣告。</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-zh-4-results.jpg" width="402" height="874" alt="看 IV 範圍和下一步">
@@ -197,37 +201,40 @@
 
       <h3 id="zh-history">5. 歷史與相簿排除</h3>
       <ul>
-        <li>成功計算後，該張照片的相簿識別碼會記在歷史；再次開啟選圖時，<strong>同一張摘要會從格狀清單隱藏</strong>，避免重複計算。</li>
-        <li>在 IV Tab 左滑刪除單筆歷史，或點右上角垃圾桶清除全部（會先確認；<strong>不刪收藏</strong>）後，該照片會重新出現在選圖清單。</li>
-        <li>超過 90 天的歷史會在開啟 IV Tab 時自動清除；收藏不受影響。</li>
+        <li>計算成功後，這張照片的相簿識別碼會記在歷史。下次開選圖格，<strong>同一張摘要會被隱藏</strong>。</li>
+        <li>在 IV 頁左滑可刪一筆歷史。右上角垃圾桶會先詢問，再清除全部歷史，<strong>不會刪收藏</strong>。刪掉之後，那張照片會重新出現在選圖格。</li>
+        <li>打開 IV 頁時，超過 90 天的歷史會清掉。收藏不受影響。</li>
       </ul>
     </section>
 
     <section id="en" lang="en" hidden>
-      <p class="lead">GO IV Calculator helps Pokémon GO players estimate IVs from in-game <strong>summary screenshots</strong>. The app reads CP, HP, and power-up stardust on your device and infers possible IV combinations and level. There is no manual numeric entry and no screen recording.</p>
+      <p class="lead">GO IV Calculator reads one in-game <strong>summary screenshot</strong> from your photo library, recognizes the name, CP, HP, and power-up stardust on your device, and estimates possible IV sets and level. History and favorites stay on that iPhone or iPad.</p>
 
-      <h2>Highlights</h2>
+      <h2>About the app</h2>
       <ul>
-        <li><strong>Summary screenshots</strong>: Pick one summary per calculation; invalid images show an error and are not saved to history.</li>
-        <li><strong>Dex</strong>: Browse stats, types, evolution, moves, and CP ranges; catalog may update from the network with an offline bundled fallback.</li>
-        <li><strong>On-device data</strong>: History and favorites stay on your device; history stores results and a photo identifier, <strong>not the image file</strong>.</li>
-        <li><strong>Extras</strong>: Buddy boost on the results screen; Great / Ultra / Master League PvP ranges and post-evolution level-50 CP references.</li>
+        <li><strong>One screenshot</strong>: If the name, CP, HP, and power-up stardust are readable, the result opens immediately. A missing value shows an error and is not saved to history.</li>
+        <li><strong>Three tabs</strong>: Dex, IV, and Saved. The icons are a paw, a function, and a star.</li>
+        <li><strong>Dex</strong>: Search by number or name, then open a page for base stats, type, evolution, moves, and CP/HP by level. Level-50 max CP and HP after evolution are reference figures. Catalog data can refresh from Firebase Storage (<code>catalog/species.json</code>) and uses the copy bundled in the app when offline.</li>
+        <li><strong>Trainer level</strong>: Optional. It lines up the level range on the summary and is not part of the CP formula. With it unset, one stardust cost can still match two levels.</li>
+        <li><strong>Results</strong>: A percent ring, attack / defense / HP IVs, a level slider, and a next step. Buddy boost shows that level’s boosted CP and HP. A wide range shows “?” in the ring. League rankings are not shown here.</li>
+        <li><strong>On this device</strong>: History stores the reading and a photo identifier, <strong>not the image file</strong>. Saved stores only the IV set you starred.</li>
+        <li><strong>Ads</strong>: The IV tab may show a native ad under Appraise, and the results screen may show a banner. The Dex list, Dex detail, and Saved list do not. The app asks for photo access, and ads may ask for tracking permission (ATT); declining uses non-personalized ads. Details are on the <a href="privacy.html">Privacy</a> page.</li>
       </ul>
 
       <h2>User guide</h2>
-      <p>Dex, IV, results, and favorites use interface mockups with no in-game artwork. The photo-permission and trainer-level shots are still simulator screens. Layout may vary slightly on a physical device.</p>
+      <p>The Dex, IV, results, and Saved pictures are interface mockups with no in-game artwork. The photo-permission and trainer-level pictures are simulator screens. Type size may differ on a device.</p>
       <nav class="toc" aria-label="Guide contents">
         <ol>
           <li><a href="#en-dex">Dex</a></li>
-          <li><a href="#en-iv">IV &amp; picking a screenshot</a></li>
+          <li><a href="#en-iv">IV and picking a screenshot</a></li>
           <li><a href="#en-trainer">Trainer level</a></li>
-          <li><a href="#en-results">Results &amp; Saved</a></li>
-          <li><a href="#en-history">History &amp; album exclusion</a></li>
+          <li><a href="#en-results">Results and Saved</a></li>
+          <li><a href="#en-history">History and the photo grid</a></li>
         </ol>
       </nav>
 
       <h3 id="en-dex">1. Dex</h3>
-      <p>Open the <strong>Dex</strong> tab to search by number or name and open a species page for stats, types, evolution, moves, and CP tables. <strong>IV calculation is only available from the IV tab.</strong></p>
+      <p>Open the Dex tab. Search by number or by either language’s name, then tap a row. The detail page shows base stats, type, the evolution line, moves, and a slider for CP and HP at each level. Level-50 max CP and HP after evolution are listed there as a reference. This tab does not calculate IVs and has no ad.</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-en-2-pokedex.jpg" width="402" height="874" alt="Find an entry by number or name">
@@ -239,12 +246,13 @@
         </figure>
       </div>
 
-      <h3 id="en-iv">2. IV &amp; picking a screenshot</h3>
+      <h3 id="en-iv">2. IV and picking a screenshot</h3>
       <ol>
-        <li>Take a <strong>summary screenshot</strong> in Pokémon GO (CP, HP, power-up stardust visible).</li>
-        <li>On the IV tab, tap <strong>Appraise Pokémon</strong>.</li>
-        <li>Grant photo library access when prompted so you can pick an image (see <a href="privacy.html">Privacy</a>).</li>
-        <li>Tap one thumbnail; on success the result appears in the same flow—you can favorite or close.</li>
+        <li>In the game, open a summary that shows CP, HP, and power-up stardust, and save a screenshot to Photos.</li>
+        <li>On the IV tab, tap the yellow <strong>Appraise</strong> button.</li>
+        <li>The first time, allow photo library access so the grid can list pictures. See <a href="privacy.html">Privacy</a>.</li>
+        <li>Tap one summary. The screen shows a recognizing spinner, then a calculating spinner.</li>
+        <li>On success the result covers the same page. Star it to save, or close to return to the IV tab.</li>
       </ol>
       <div class="manual-shots-row">
         <figure class="manual-shot">
@@ -256,17 +264,18 @@
           <figcaption>System photo access dialog when choosing a screenshot.</figcaption>
         </figure>
       </div>
+      <p>A native ad may sit under Appraise, with history below it. The help button explains that history is kept for 90 days, with no count limit, and that a swipe deletes one row. Saved items do not expire.</p>
 
       <h3 id="en-trainer">3. Trainer level</h3>
-      <p>Tap the <strong>Level</strong> capsule on the IV tab to set your trainer level (or leave unset). This refines arc-based level caps and does <strong>not</strong> change the CP formula.</p>
+      <p>The yellow capsule at the top left of the IV tab sets trainer level from 1 to 50, or leaves it unset. Tap Done to store it. It only lines up the level on the summary. It does not change how CP is calculated. If one stardust cost still matches two levels, the result asks you to check the trainer level or power up once and calculate again.</p>
       <figure class="manual-shot">
         <img src="manual/manual-trainer-level.png" width="402" height="874" alt="Trainer level picker">
         <figcaption>Trainer level wheel: unset or levels 1–50, then Done.</figcaption>
       </figure>
 
-      <h3 id="en-results">4. Results &amp; Saved</h3>
-      <p>The results screen shows grade, IV stats, level slider, and tips. Use <strong>Buddy boost</strong> to see boosted CP/HP. Tap the star to save the selected IV set to Saved.</p>
-      <p>The <strong>Saved</strong> tab lists stored IV sets; tapping a card reloads that saved combination only.</p>
+      <h3 id="en-results">4. Results and Saved</h3>
+      <p>Results show the percent ring, attack, defense, and HP IVs, a level slider, and a suggestion. A spread of about 20 points or more shows “?” in the ring. Buddy boost marks that level’s boosted CP and HP. The star at the top right saves <strong>the set you are viewing</strong>. Close returns to the IV tab. A banner may sit at the bottom. League rankings are not on this screen.</p>
+      <p>The Saved tab searches by name, number, or CP. Tapping a card shows a loading state, then the result for only the IV set that was saved. The Saved list has no ad.</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-en-4-results.jpg" width="402" height="874" alt="See the IV range and the next step">
@@ -278,17 +287,17 @@
         </figure>
       </div>
 
-      <h3 id="en-history">5. History &amp; album exclusion</h3>
+      <h3 id="en-history">5. History and the photo grid</h3>
       <ul>
-        <li>After a successful calculation, that photo’s library identifier is stored; the same summary is <strong>hidden in the picker grid</strong> until you remove its history entry.</li>
-        <li>Swipe to delete one history row, or use Clear all (with confirmation; <strong>does not delete Saved</strong>) to show the photo again.</li>
-        <li>History older than 90 days is removed when you open the IV tab; Saved items are kept.</li>
+        <li>After a successful calculation, that photo’s library identifier is stored. The same summary is <strong>hidden in the picker grid</strong> the next time you choose a picture.</li>
+        <li>Swipe a history row to delete it. The trash button asks first, then clears all history and <strong>does not delete Saved</strong>. After either deletion, that photo shows in the grid again.</li>
+        <li>Opening the IV tab removes history older than 90 days. Saved items stay.</li>
       </ul>
     </section>
 
     <footer>
-      <p id="footer-zh">本頁為 GO IV 計算 App 文宣與操作說明。</p>
-      <p id="footer-en" hidden>Informational and user-guide page for GO IV Calculator.</p>
+      <p id="footer-zh">本頁為 GO IV 計算的介紹與操作說明。問題請寫到 <a href="mailto:mikru168@gmail.com">mikru168@gmail.com</a>，或看<a href="support.html">支援</a>與<a href="privacy.html">隱私權</a>。</p>
+      <p id="footer-en" hidden>About and user guide for GO IV Calculator. Write to <a href="mailto:mikru168@gmail.com">mikru168@gmail.com</a>, or see <a href="support.html">Support</a> and <a href="privacy.html">Privacy</a>.</p>
     </footer>
   </main>
   <script>
@@ -299,6 +308,7 @@
       };
       function setLang(lang) {
         document.documentElement.lang = lang === 'en' ? 'en' : 'zh-Hant';
+        document.title = navLabels[lang].title;
         document.getElementById('zh').hidden = lang !== 'zh';
         document.getElementById('en').hidden = lang !== 'en';
         document.getElementById('footer-zh').hidden = lang !== 'zh';
