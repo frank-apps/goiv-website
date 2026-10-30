@@ -124,23 +124,27 @@
 
       <h2>產品介紹</h2>
       <ul>
-        <li><strong>摘要截圖</strong>：一次一張。讀得到名稱、CP、HP 與強化星塵就直接顯示結果。圖裡缺這些資料時會提示錯誤，不會寫進歷史。</li>
-        <li><strong>三個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」。圖示分別是足跡、函數與星星。</li>
+        <li><strong>摘要截圖</strong>：一次一張。讀得到名稱、CP、HP 與強化星塵就直接顯示結果，等級 41 以上（強化星塵 11,000 起）與強化過的半級也算得出來。圖裡缺這些資料時會提示錯誤，不會寫進歷史。</li>
+        <li><strong>四個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」、「設定」。圖示分別是足跡、函數、星星與齒輪。</li>
         <li><strong>圖鑑</strong>：用編號、中文或英文名搜尋，點牌卡看三圍、屬性、進化、技能，以及各等級 CP、HP。進化後等級 50 的最大 CP、HP 只作參考。圖鑑資料可從 Firebase Storage 的 <code>catalog/species.json</code> 更新；離線時用 App 內建備份。</li>
-        <li><strong>訓練師等級</strong>：可選。用來對齊摘要上的等級範圍，不進入 CP 公式。沒設定時，同一組星塵仍可能對應兩個等級。</li>
-        <li><strong>結果</strong>：百分比環、攻擊／防禦／體力 IV、等級滑桿與下一步建議。可開啟好夥伴加成，看該等級加成後的 CP、HP。範圍很寬時圓環會顯示「?」。結果頁不列出聯盟對戰區間。</li>
+        <li><strong>訓練師等級</strong>：可選，在 IV 頁左上角或「設定」分頁調整。用來對齊摘要上的等級範圍，不進入 CP 公式。沒設定時，同一組星塵仍可能對應多個等級。</li>
+        <li><strong>結果</strong>：百分比環、攻擊／防禦／體力 IV、等級滑桿與下一步建議。可開啟好夥伴加成，看該等級加成後的 CP、HP。範圍很寬時圓環會顯示「?」。</li>
+        <li><strong>PvP</strong>：結果頁列出小小盃、超級、高級、大師聯盟的名次（Rank）與佔 Rank 1 的百分比，進化鏈每一階都算。點一組 IV 可看最佳等級、CP、實際攻擊，以及養到該等級需要的星塵、糖果與 XL 糖果，也能一鍵複製改名字串。收藏牌卡會標出最佳名次。</li>
+        <li><strong>設定</strong>：PvP 等級上限（40／50／51）、IV 保底、預設聯盟、改名格式與訓練師等級。</li>
         <li><strong>本機資料</strong>：歷史只存辨識結果與相簿識別碼，<strong>不存截圖檔</strong>。收藏只存你點下的那一組 IV。</li>
         <li><strong>廣告</strong>：IV 頁在「幫精靈評價」下方可能出現原生廣告，結果頁底部可能有橫幅。圖鑑與收藏第一層沒有廣告。第一次會問相簿權限；廣告可能再問追蹤許可（ATT），拒絕後改為非個人化。細節見<a href="privacy.html">隱私權</a>。</li>
       </ul>
 
       <h2>操作手冊</h2>
-      <p>下面的圖鑑、IV、結果與收藏是不含遊戲內畫面的介面示意。選圖權限與訓練師等級仍是模擬器畫面。實機字級可能略有不同。</p>
+      <p>下面的圖鑑、IV、結果與收藏是不含遊戲內畫面的介面示意。選圖權限、訓練師等級、PvP 與設定是模擬器畫面。實機字級可能略有不同。</p>
       <nav class="toc" aria-label="手冊目次">
         <ol>
           <li><a href="#zh-dex">圖鑑</a></li>
           <li><a href="#zh-iv">IV 與選圖</a></li>
           <li><a href="#zh-trainer">訓練師等級</a></li>
           <li><a href="#zh-results">結果與收藏</a></li>
+          <li><a href="#zh-pvp">PvP 名次與改名</a></li>
+          <li><a href="#zh-settings">設定</a></li>
           <li><a href="#zh-history">歷史與相簿排除</a></li>
         </ol>
       </nav>
@@ -179,15 +183,15 @@
       <p>黃色按鈕下方可能有一則原生廣告，再往下是計算歷史。問號會說明：歷史留 90 天、沒有筆數上限、左滑可刪一筆；收藏不會過期。</p>
 
       <h3 id="zh-trainer">3. 訓練師等級</h3>
-      <p>IV 頁左上角黃色膠囊是訓練師等級，可設 1–50，或選不設定，再點「完成」。它只用來對齊摘要上的等級，不改 CP 算法。同一組星塵若仍對到兩個等級，結果頁會請你核對訓練師等級，或強化一級再算。</p>
+      <p>IV 頁左上角黃色膠囊是訓練師等級，可設 1–50，或選不設定，再點「完成」。「設定」分頁也能改。它只用來對齊摘要上的等級，不改 CP 算法。同一組星塵若仍對到兩個等級，結果頁會請你核對訓練師等級，或強化一級再算。</p>
       <figure class="manual-shot">
         <img src="manual/manual-trainer-level.png" width="402" height="874" alt="設定訓練師等級轉輪">
         <figcaption>訓練師等級轉輪：不設定或等級 1–50，點「完成」儲存。</figcaption>
       </figure>
 
       <h3 id="zh-results">4. 結果與收藏</h3>
-      <p>結果頁有百分比環、攻擊／防禦／體力 IV、等級滑桿與建議。範圍超過約 20 個百分點時，圓環顯示「?」。打開「好夥伴加成」後，該等級的 CP、HP 會標出加成後的數字。右上角星號把<strong>目前這一組</strong>存進收藏。左上角關閉回到 IV 頁。結果頁底部可能有橫幅廣告。這一頁不顯示聯盟對戰區間。</p>
-      <p>底部「收藏」可搜尋名稱、編號或 CP。點牌卡會先顯示「載入中…」，再開結果，而且只呈現當初收藏的那一組 IV。收藏第一層沒有廣告。</p>
+      <p>結果頁有百分比環、攻擊／防禦／體力 IV、等級滑桿與建議。範圍超過約 20 個百分點時，圓環顯示「?」。打開「好夥伴加成」後，該等級的 CP、HP 會標出加成後的數字。右上角星號把<strong>目前這一組</strong>存進收藏。左上角關閉回到 IV 頁。結果頁底部可能有橫幅廣告。往下捲是 PvP 區塊，見下一節。</p>
+      <p>底部「收藏」可搜尋名稱、編號或 CP。牌卡會標出這組 IV 在預設聯盟的最佳名次，例如「GL #1 · 100.0% · 哈克龍」。點牌卡會先顯示「載入中…」，再開結果，而且只呈現當初收藏的那一組 IV。收藏第一層沒有廣告。</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-zh-4-results.jpg" width="402" height="874" alt="看 IV 範圍和下一步">
@@ -199,7 +203,36 @@
         </figure>
       </div>
 
-      <h3 id="zh-history">5. 歷史與相簿排除</h3>
+      <h3 id="zh-pvp">5. PvP 名次與改名</h3>
+      <ol>
+        <li>在結果頁往下捲到「PvP」，用上方的切換選聯盟：小小盃（CP 500）、超級（1,500）、高級（2,500）、大師（無上限）。小小盃只列第一階。</li>
+        <li>每一階一張牌卡，寫著名次區間、最佳等級與 CP，以及佔 Rank 1 的百分比。同一個體質乘積的組合名次相同。</li>
+        <li>在 IV 詳情表格點一組，PvP 區塊會改成這一組的明細：名次、最佳等級、CP、體質乘積、實際攻擊與 Rank 1 的比較，以及從目前等級養到最佳等級的星塵、糖果、XL 糖果與第二大招成本。暗影精靈可切換「淨化後」，也可打開「亮晶晶」看星塵減半。</li>
+        <li>按「複製」把改名字串（例如 <code>①⑮⑮GL1</code>）放進剪貼簿，回遊戲改名時貼上。格式可在「設定」分頁換。</li>
+      </ol>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-pvp-ranks-zh.png" width="402" height="874" alt="結果頁 PvP 區塊：超級聯盟各階名次">
+          <figcaption>PvP 區塊：進化鏈每一階的名次區間。</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-pvp-detail-zh.png" width="402" height="874" alt="單組 IV 的 PvP 明細與養成成本">
+          <figcaption>點一組 IV：名次、實際攻擊、養成成本與改名字串。</figcaption>
+        </figure>
+      </div>
+      <figure class="manual-shot">
+        <img src="manual/manual-pvp-favorites-zh.png" width="402" height="874" alt="收藏牌卡顯示 PvP 最佳名次">
+        <figcaption>收藏：牌卡標出最佳名次。</figcaption>
+      </figure>
+
+      <h3 id="zh-settings">6. 設定</h3>
+      <p>點底部「設定」。等級上限決定排名時最多養到幾級：40 不用 XL 糖果，50 用 XL 糖果，51 是正港好夥伴再加 1 級。IV 保底排除不可能出現的組合，例如團體戰、孵蛋、研究的 IV 至少是 10。預設聯盟決定結果頁與收藏先顯示哪一個聯盟。這些設定會同時套用到結果頁與收藏。</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-settings-zh.png" width="402" height="874" alt="設定分頁">
+        <figcaption>設定分頁：等級上限、IV 保底、預設聯盟、改名格式。</figcaption>
+      </figure>
+
+      <h3 id="zh-history">7. 歷史與相簿排除</h3>
       <ul>
         <li>計算成功後，這張照片的相簿識別碼會記在歷史。下次開選圖格，<strong>同一張摘要會被隱藏</strong>。</li>
         <li>在 IV 頁左滑可刪一筆歷史。右上角垃圾桶會先詢問，再清除全部歷史，<strong>不會刪收藏</strong>。刪掉之後，那張照片會重新出現在選圖格。</li>
@@ -212,23 +245,27 @@
 
       <h2>About the app</h2>
       <ul>
-        <li><strong>One screenshot</strong>: If the name, CP, HP, and power-up stardust are readable, the result opens immediately. A missing value shows an error and is not saved to history.</li>
-        <li><strong>Three tabs</strong>: Dex, IV, and Saved. The icons are a paw, a function, and a star.</li>
+        <li><strong>One screenshot</strong>: If the name, CP, HP, and power-up stardust are readable, the result opens immediately, including level 41 and up (11,000 stardust and more) and powered-up half levels. A missing value shows an error and is not saved to history.</li>
+        <li><strong>Four tabs</strong>: Dex, IV, Saved, and Settings. The icons are a paw, a function, a star, and a gear.</li>
         <li><strong>Dex</strong>: Search by number or name, then open a page for base stats, type, evolution, moves, and CP/HP by level. Level-50 max CP and HP after evolution are reference figures. Catalog data can refresh from Firebase Storage (<code>catalog/species.json</code>) and uses the copy bundled in the app when offline.</li>
-        <li><strong>Trainer level</strong>: Optional. It lines up the level range on the summary and is not part of the CP formula. With it unset, one stardust cost can still match two levels.</li>
-        <li><strong>Results</strong>: A percent ring, attack / defense / HP IVs, a level slider, and a next step. Buddy boost shows that level’s boosted CP and HP. A wide range shows “?” in the ring. League rankings are not shown here.</li>
+        <li><strong>Trainer level</strong>: Optional, set on the IV tab or in Settings. It lines up the level range on the summary and is not part of the CP formula. With it unset, one stardust cost can still match more than one level.</li>
+        <li><strong>Results</strong>: A percent ring, attack / defense / HP IVs, a level slider, and a next step. Buddy boost shows that level’s boosted CP and HP. A wide range shows “?” in the ring.</li>
+        <li><strong>PvP</strong>: Results list the rank and percent of rank 1 in Little Cup, Great, Ultra, and Master League for every evolution stage. Tap an IV set to see its best level, CP, attack, and the Stardust, Candy, and XL Candy needed to get there, and copy a nickname in one tap. Saved cards show the best rank.</li>
+        <li><strong>Settings</strong>: PvP level cap (40 / 50 / 51), IV floor, default league, nickname format, and trainer level.</li>
         <li><strong>On this device</strong>: History stores the reading and a photo identifier, <strong>not the image file</strong>. Saved stores only the IV set you starred.</li>
         <li><strong>Ads</strong>: The IV tab may show a native ad under Appraise, and the results screen may show a banner. The Dex list, Dex detail, and Saved list do not. The app asks for photo access, and ads may ask for tracking permission (ATT); declining uses non-personalized ads. Details are on the <a href="privacy.html">Privacy</a> page.</li>
       </ul>
 
       <h2>User guide</h2>
-      <p>The Dex, IV, results, and Saved pictures are interface mockups with no in-game artwork. The photo-permission and trainer-level pictures are simulator screens. Type size may differ on a device.</p>
+      <p>The Dex, IV, results, and Saved pictures are interface mockups with no in-game artwork. The photo-permission, trainer-level, PvP, and Settings pictures are simulator screens. Type size may differ on a device.</p>
       <nav class="toc" aria-label="Guide contents">
         <ol>
           <li><a href="#en-dex">Dex</a></li>
           <li><a href="#en-iv">IV and picking a screenshot</a></li>
           <li><a href="#en-trainer">Trainer level</a></li>
           <li><a href="#en-results">Results and Saved</a></li>
+          <li><a href="#en-pvp">PvP ranks and nicknames</a></li>
+          <li><a href="#en-settings">Settings</a></li>
           <li><a href="#en-history">History and the photo grid</a></li>
         </ol>
       </nav>
@@ -267,15 +304,15 @@
       <p>A native ad may sit under Appraise, with history below it. The help button explains that history is kept for 90 days, with no count limit, and that a swipe deletes one row. Saved items do not expire.</p>
 
       <h3 id="en-trainer">3. Trainer level</h3>
-      <p>The yellow capsule at the top left of the IV tab sets trainer level from 1 to 50, or leaves it unset. Tap Done to store it. It only lines up the level on the summary. It does not change how CP is calculated. If one stardust cost still matches two levels, the result asks you to check the trainer level or power up once and calculate again.</p>
+      <p>The yellow capsule at the top left of the IV tab sets trainer level from 1 to 50, or leaves it unset. Tap Done to store it. You can also change it in Settings. It only lines up the level on the summary. It does not change how CP is calculated. If one stardust cost still matches two levels, the result asks you to check the trainer level or power up once and calculate again.</p>
       <figure class="manual-shot">
         <img src="manual/manual-trainer-level.png" width="402" height="874" alt="Trainer level picker">
         <figcaption>Trainer level wheel: unset or levels 1–50, then Done.</figcaption>
       </figure>
 
       <h3 id="en-results">4. Results and Saved</h3>
-      <p>Results show the percent ring, attack, defense, and HP IVs, a level slider, and a suggestion. A spread of about 20 points or more shows “?” in the ring. Buddy boost marks that level’s boosted CP and HP. The star at the top right saves <strong>the set you are viewing</strong>. Close returns to the IV tab. A banner may sit at the bottom. League rankings are not on this screen.</p>
-      <p>The Saved tab searches by name, number, or CP. Tapping a card shows a loading state, then the result for only the IV set that was saved. The Saved list has no ad.</p>
+      <p>Results show the percent ring, attack, defense, and HP IVs, a level slider, and a suggestion. A spread of about 20 points or more shows “?” in the ring. Buddy boost marks that level’s boosted CP and HP. The star at the top right saves <strong>the set you are viewing</strong>. Close returns to the IV tab. A banner may sit at the bottom. Scroll down for the PvP section, covered next.</p>
+      <p>The Saved tab searches by name, number, or CP. Each card shows the set’s best rank in the default league, such as “GL #1 · 100.0% · Dragonair”. Tapping a card shows a loading state, then the result for only the IV set that was saved. The Saved list has no ad.</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-en-4-results.jpg" width="402" height="874" alt="See the IV range and the next step">
@@ -287,7 +324,36 @@
         </figure>
       </div>
 
-      <h3 id="en-history">5. History and the photo grid</h3>
+      <h3 id="en-pvp">5. PvP ranks and nicknames</h3>
+      <ol>
+        <li>On the result, scroll to PvP and pick a league: Little Cup (CP 500), Great (1,500), Ultra (2,500), or Master (no cap). Little Cup lists the first stage only.</li>
+        <li>Each stage gets a card with its rank range, best level and CP, and percent of rank 1. Sets with the same stat product share a rank.</li>
+        <li>Tap a set in the IV details table to see that set alone: rank, best level, CP, stat product, attack compared with rank 1, and the Stardust, Candy, XL Candy, and second charged move cost from its current level. Shadow Pokémon can switch to purified, and Lucky halves the Stardust.</li>
+        <li>Tap Copy to put the nickname (such as <code>①⑮⑮GL1</code>) on the clipboard, then paste it when renaming in the game. Change the format in Settings.</li>
+      </ol>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-pvp-ranks-en.png" width="402" height="874" alt="PvP section with Great League ranks for each stage">
+          <figcaption>PvP: rank range for every evolution stage.</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-pvp-detail-en.png" width="402" height="874" alt="PvP details and power-up cost for one IV set">
+          <figcaption>One IV set: rank, attack, power-up cost, and nickname.</figcaption>
+        </figure>
+      </div>
+      <figure class="manual-shot">
+        <img src="manual/manual-pvp-favorites-en.png" width="402" height="874" alt="Saved cards with the best PvP rank">
+        <figcaption>Saved: each card shows the best rank.</figcaption>
+      </figure>
+
+      <h3 id="en-settings">6. Settings</h3>
+      <p>Open the Settings tab. The level cap is how far a set is powered up when ranking: 40 uses no XL Candy, 50 uses XL Candy, and 51 adds the Best Buddy level. The IV floor leaves out sets that cannot occur, such as raid, egg, and research Pokémon, which have at least 10 in each IV. The default league is the one results and Saved show first. These settings apply to both results and Saved.</p>
+      <figure class="manual-shot">
+        <img src="manual/manual-settings-en.png" width="402" height="874" alt="Settings tab">
+        <figcaption>Settings: level cap, IV floor, default league, and nickname format.</figcaption>
+      </figure>
+
+      <h3 id="en-history">7. History and the photo grid</h3>
       <ul>
         <li>After a successful calculation, that photo’s library identifier is stored. The same summary is <strong>hidden in the picker grid</strong> the next time you choose a picture.</li>
         <li>Swipe a history row to delete it. The trash button asks first, then clears all history and <strong>does not delete Saved</strong>. After either deletion, that photo shows in the grid again.</li>
