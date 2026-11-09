@@ -125,18 +125,19 @@
       <h2>產品介紹</h2>
       <ul>
         <li><strong>摘要截圖</strong>：一次一張。讀得到名稱、CP、HP 與強化星塵就直接顯示結果，等級 41 以上（強化星塵 11,000 起）與強化過的半級也算得出來。圖裡缺這些資料時會提示錯誤，不會寫進歷史。</li>
-        <li><strong>四個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」、「設定」。圖示分別是足跡、函數、星星與齒輪。</li>
+        <li><strong>五個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」、「相剋」、「設定」。圖示分別是足跡、函數、星星、盾牌與齒輪。</li>
         <li><strong>圖鑑</strong>：用編號、中文或英文名搜尋，點牌卡看三圍、屬性、進化、技能，以及各等級 CP、HP。進化後等級 50 的最大 CP、HP 只作參考。圖鑑資料可從 Firebase Storage 的 <code>catalog/species.json</code> 更新；離線時用 App 內建備份。</li>
         <li><strong>訓練師等級</strong>：可選，在 IV 頁左上角或「設定」分頁調整。用來對齊摘要上的等級範圍，不進入 CP 公式。沒設定時，同一組星塵仍可能對應多個等級。</li>
         <li><strong>結果</strong>：百分比環、攻擊／防禦／體力 IV、等級滑桿與下一步建議。可開啟好夥伴加成，看該等級加成後的 CP、HP。範圍很寬時圓環會顯示「?」。</li>
         <li><strong>PvP</strong>：結果頁列出小小盃、超級、高級、大師聯盟的名次（Rank）與佔 Rank 1 的百分比，進化鏈每一階都算。點一組 IV 可看最佳等級、CP、實際攻擊，以及養到該等級需要的星塵、糖果與 XL 糖果，也能一鍵複製改名字串。收藏牌卡會標出最佳名次。</li>
+        <li><strong>相剋</strong>：對戰時查屬性。「查對手」選 1–2 個屬性或搜尋名字，看該用什麼打、別用什麼、牠的招式剋誰；「我的隊伍」每個聯盟存 3 隻，一眼看到每隻的弱點與抗性。屬性都附上圖示，水、冰、龍這類相似屬性也好分辨。</li>
         <li><strong>設定</strong>：PvP 等級上限（40／50／51）、IV 保底、預設聯盟、改名格式與訓練師等級。</li>
-        <li><strong>本機資料</strong>：歷史只存辨識結果與相簿識別碼，<strong>不存截圖檔</strong>。收藏只存你點下的那一組 IV。</li>
-        <li><strong>廣告</strong>：IV 頁在「幫精靈評價」下方可能出現原生廣告，結果頁底部可能有橫幅。圖鑑與收藏第一層沒有廣告。第一次會問相簿權限；廣告可能再問追蹤許可（ATT），拒絕後改為非個人化。細節見<a href="privacy.html">隱私權</a>。</li>
+        <li><strong>本機資料</strong>：歷史只存辨識結果與相簿識別碼，<strong>不存截圖檔</strong>。收藏只存你點下的那一組 IV。對戰隊伍只存種類與招式選擇。</li>
+        <li><strong>廣告</strong>：IV 頁在「幫精靈評價」下方可能出現原生廣告，結果頁底部可能有橫幅，相剋分頁最下方可能有一張原生廣告。圖鑑與收藏第一層、設定沒有廣告。第一次會問相簿權限；廣告可能再問追蹤許可（ATT），拒絕後改為非個人化。細節見<a href="privacy.html">隱私權</a>。</li>
       </ul>
 
       <h2>操作手冊</h2>
-      <p>下面的圖鑑、IV、結果與收藏是不含遊戲內畫面的介面示意。選圖權限、訓練師等級、PvP 與設定是模擬器畫面。實機字級可能略有不同。</p>
+      <p>下面的圖鑑、IV、結果與收藏是不含遊戲內畫面的介面示意。選圖權限、訓練師等級、PvP、相剋與設定是模擬器畫面。實機字級可能略有不同。</p>
       <nav class="toc" aria-label="手冊目次">
         <ol>
           <li><a href="#zh-dex">圖鑑</a></li>
@@ -144,21 +145,22 @@
           <li><a href="#zh-trainer">訓練師等級</a></li>
           <li><a href="#zh-results">結果與收藏</a></li>
           <li><a href="#zh-pvp">PvP 名次與改名</a></li>
+          <li><a href="#zh-matchup">相剋</a></li>
           <li><a href="#zh-settings">設定</a></li>
           <li><a href="#zh-history">歷史與相簿排除</a></li>
         </ol>
       </nav>
 
       <h3 id="zh-dex">1. 圖鑑</h3>
-      <p>點底部「精靈」。搜尋框可填編號、中文或英文名。點一列進入詳細頁，可看三圍、屬性、進化鏈、技能，並用滑桿看各等級的 CP、HP 範圍。進化後等級 50 的最大 CP、HP 標在進化區，只供對照。圖鑑頁不計算 IV，也沒有廣告。</p>
+      <p>點底部「精靈」。搜尋框可填編號、中文或英文名。點一列進入詳細頁，可看三圍、屬性與相剋、進化鏈、技能，並用滑桿看各等級的 CP、HP 範圍。進化後等級 50 的最大 CP、HP 標在進化區，只供對照。圖鑑頁不計算 IV，也沒有廣告。</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="store/asc-zh-pokedex.jpg" width="402" height="874" alt="用編號或名字找：精靈圖鑑列表">
           <figcaption>圖鑑列表：用編號或名字找。</figcaption>
         </figure>
         <figure class="manual-shot">
-          <img src="store/asc-zh-detail.jpg" width="402" height="874" alt="看三圍、最高 CP 和屬性">
-          <figcaption>詳細頁：三圍、最高 CP／HP 與屬性。</figcaption>
+          <img src="store/asc-zh-detail.jpg" width="402" height="874" alt="看技能與屬性相剋">
+          <figcaption>詳細頁：技能與屬性相剋，屬性都有圖示。</figcaption>
         </figure>
       </div>
 
@@ -225,14 +227,27 @@
         <figcaption>收藏：牌卡標出最佳名次。</figcaption>
       </figure>
 
-      <h3 id="zh-settings">6. 設定</h3>
+      <h3 id="zh-matchup">6. 相剋</h3>
+      <p>點底部「相剋」。「查對手」選對手的 1–2 個屬性，或在上方搜尋名字（也可打英文名或編號），下方會列出該用什麼屬性打（倍率越高越好）、別用哪些屬性，以及牠自己屬性的招式剋誰。「我的隊伍」每個聯盟存一組 3 隻，卡片列出每隻的弱點、抗性與招式屬性；可在收藏長按、或結果頁 PvP 區塊加入。查對手時若有隊員會被剋，也會一起提示。</p>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-matchup-opponent-zh.png" width="402" height="874" alt="相剋分頁：查對手，選了水與地面">
+          <figcaption>查對手：水＋地面要用草打，別用電、火、毒、岩石、鋼。</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-matchup-team-zh.png" width="402" height="874" alt="相剋分頁：我的隊伍">
+          <figcaption>我的隊伍：每隻的弱點、抗性與招式屬性。</figcaption>
+        </figure>
+      </div>
+
+      <h3 id="zh-settings">7. 設定</h3>
       <p>點底部「設定」。等級上限決定排名時最多養到幾級：40 不用 XL 糖果，50 用 XL 糖果，51 是正港好夥伴再加 1 級。IV 保底排除不可能出現的組合，例如團體戰、孵蛋、研究的 IV 至少是 10。預設聯盟決定結果頁與收藏先顯示哪一個聯盟。這些設定會同時套用到結果頁與收藏。</p>
       <figure class="manual-shot">
         <img src="manual/manual-settings-zh.png" width="402" height="874" alt="設定分頁">
         <figcaption>設定分頁：等級上限、IV 保底、預設聯盟、改名格式。</figcaption>
       </figure>
 
-      <h3 id="zh-history">7. 歷史與相簿排除</h3>
+      <h3 id="zh-history">8. 歷史與相簿排除</h3>
       <ul>
         <li>計算成功後，這張照片的相簿識別碼會記在歷史。下次開選圖格，<strong>同一張摘要會被隱藏</strong>。</li>
         <li>在 IV 頁左滑可刪一筆歷史。右上角垃圾桶會先詢問，再清除全部歷史，<strong>不會刪收藏</strong>。刪掉之後，那張照片會重新出現在選圖格。</li>
@@ -246,18 +261,19 @@
       <h2>About the app</h2>
       <ul>
         <li><strong>One screenshot</strong>: If the name, CP, HP, and power-up stardust are readable, the result opens immediately, including level 41 and up (11,000 stardust and more) and powered-up half levels. A missing value shows an error and is not saved to history.</li>
-        <li><strong>Four tabs</strong>: Dex, IV, Saved, and Settings. The icons are a paw, a function, a star, and a gear.</li>
+        <li><strong>Five tabs</strong>: Dex, IV, Saved, Matchups, and Settings. The icons are a paw, a function, a star, a shield, and a gear.</li>
         <li><strong>Dex</strong>: Search by number or name, then open a page for base stats, type, evolution, moves, and CP/HP by level. Level-50 max CP and HP after evolution are reference figures. Catalog data can refresh from Firebase Storage (<code>catalog/species.json</code>) and uses the copy bundled in the app when offline.</li>
         <li><strong>Trainer level</strong>: Optional, set on the IV tab or in Settings. It lines up the level range on the summary and is not part of the CP formula. With it unset, one stardust cost can still match more than one level.</li>
         <li><strong>Results</strong>: A percent ring, attack / defense / HP IVs, a level slider, and a next step. Buddy boost shows that level’s boosted CP and HP. A wide range shows “?” in the ring.</li>
         <li><strong>PvP</strong>: Results list the rank and percent of rank 1 in Little Cup, Great, Ultra, and Master League for every evolution stage. Tap an IV set to see its best level, CP, attack, and the Stardust, Candy, and XL Candy needed to get there, and copy a nickname in one tap. Saved cards show the best rank.</li>
+        <li><strong>Matchups</strong>: Check types during a battle. In Opponent, pick one or two types or search a name to see what hits it hard, what to avoid, and what its own moves hit. In My Team, save three members per league and see each one’s weaknesses and resistances at a glance. Every type has an icon, so similar types such as Water, Ice, and Dragon are easy to tell apart.</li>
         <li><strong>Settings</strong>: PvP level cap (40 / 50 / 51), IV floor, default league, nickname format, and trainer level.</li>
-        <li><strong>On this device</strong>: History stores the reading and a photo identifier, <strong>not the image file</strong>. Saved stores only the IV set you starred.</li>
-        <li><strong>Ads</strong>: The IV tab may show a native ad under Appraise, and the results screen may show a banner. The Dex list, Dex detail, and Saved list do not. The app asks for photo access, and ads may ask for tracking permission (ATT); declining uses non-personalized ads. Details are on the <a href="privacy.html">Privacy</a> page.</li>
+        <li><strong>On this device</strong>: History stores the reading and a photo identifier, <strong>not the image file</strong>. Saved stores only the IV set you starred. Battle teams store only the species and move choices.</li>
+        <li><strong>Ads</strong>: The IV tab may show a native ad under Appraise, and the results screen may show a banner, and the bottom of the Matchups tab may show one native ad. The Dex list, Dex detail, Saved list, and Settings do not. The app asks for photo access, and ads may ask for tracking permission (ATT); declining uses non-personalized ads. Details are on the <a href="privacy.html">Privacy</a> page.</li>
       </ul>
 
       <h2>User guide</h2>
-      <p>The Dex, IV, results, and Saved pictures are interface mockups with no in-game artwork. The photo-permission, trainer-level, PvP, and Settings pictures are simulator screens. Type size may differ on a device.</p>
+      <p>The Dex, IV, results, and Saved pictures are interface mockups with no in-game artwork. The photo-permission, trainer-level, PvP, Matchups, and Settings pictures are simulator screens. Type size may differ on a device.</p>
       <nav class="toc" aria-label="Guide contents">
         <ol>
           <li><a href="#en-dex">Dex</a></li>
@@ -265,6 +281,7 @@
           <li><a href="#en-trainer">Trainer level</a></li>
           <li><a href="#en-results">Results and Saved</a></li>
           <li><a href="#en-pvp">PvP ranks and nicknames</a></li>
+          <li><a href="#en-matchup">Matchups</a></li>
           <li><a href="#en-settings">Settings</a></li>
           <li><a href="#en-history">History and the photo grid</a></li>
         </ol>
@@ -278,8 +295,8 @@
           <figcaption>Catalog: find an entry by number or name.</figcaption>
         </figure>
         <figure class="manual-shot">
-          <img src="store/asc-en-detail.jpg" width="402" height="874" alt="See base stats, max CP, and type">
-          <figcaption>Detail: base stats, max CP, and type.</figcaption>
+          <img src="store/asc-en-detail.jpg" width="402" height="874" alt="See moves and type matchups">
+          <figcaption>Details: moves and type matchups, with an icon for every type.</figcaption>
         </figure>
       </div>
 
@@ -346,14 +363,27 @@
         <figcaption>Saved: each card shows the best rank.</figcaption>
       </figure>
 
-      <h3 id="en-settings">6. Settings</h3>
+      <h3 id="en-matchup">6. Matchups</h3>
+      <p>Open the Matchups tab. In Opponent, pick one or two of the opponent’s types, or search a name at the top (English name or number also works). Below you see which types hit it hard (higher is better), which to avoid, and what moves of its own types hit. In My Team, save a team of three for each league; each card lists weaknesses, resistances, and move types. Add members from a saved entry’s long-press menu or the PvP section of a result. When an opponent hits one of your members hard, the lookup says so.</p>
+      <div class="manual-shots-row">
+        <figure class="manual-shot">
+          <img src="manual/manual-matchup-opponent-en.png" width="402" height="874" alt="Matchups tab: Opponent with Water and Ground picked">
+          <figcaption>Opponent: hit Water + Ground with Grass; avoid Electric, Fire, Poison, Rock, and Steel.</figcaption>
+        </figure>
+        <figure class="manual-shot">
+          <img src="manual/manual-matchup-team-en.png" width="402" height="874" alt="Matchups tab: My Team">
+          <figcaption>My Team: weaknesses, resistances, and move types for each member.</figcaption>
+        </figure>
+      </div>
+
+      <h3 id="en-settings">7. Settings</h3>
       <p>Open the Settings tab. The level cap is how far a set is powered up when ranking: 40 uses no XL Candy, 50 uses XL Candy, and 51 adds the Best Buddy level. The IV floor leaves out sets that cannot occur, such as raid, egg, and research Pokémon, which have at least 10 in each IV. The default league is the one results and Saved show first. These settings apply to both results and Saved.</p>
       <figure class="manual-shot">
         <img src="manual/manual-settings-en.png" width="402" height="874" alt="Settings tab">
         <figcaption>Settings: level cap, IV floor, default league, and nickname format.</figcaption>
       </figure>
 
-      <h3 id="en-history">7. History and the photo grid</h3>
+      <h3 id="en-history">8. History and the photo grid</h3>
       <ul>
         <li>After a successful calculation, that photo’s library identifier is stored. The same summary is <strong>hidden in the picker grid</strong> the next time you choose a picture.</li>
         <li>Swipe a history row to delete it. The trash button asks first, then clears all history and <strong>does not delete Saved</strong>. After either deletion, that photo shows in the grid again.</li>
