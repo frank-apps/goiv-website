@@ -126,7 +126,7 @@
       <ul>
         <li><strong>摘要截圖</strong>：一次一張。讀得到名稱、CP、HP 與強化星塵就直接顯示結果，等級 41 以上（強化星塵 11,000 起）與強化過的半級也算得出來。圖裡缺這些資料時會提示錯誤，不會寫進歷史。</li>
         <li><strong>五個 Tab</strong>：底部是「精靈」（圖鑑）、「IV」、「收藏」、「相剋」、「設定」。圖示分別是足跡、函數、星星、盾牌與齒輪。</li>
-        <li><strong>圖鑑</strong>：用編號、中文或英文名搜尋，點牌卡看三圍、屬性、進化、技能，以及各等級 CP、HP。進化後等級 50 的最大 CP、HP 只作參考。圖鑑資料可從 Firebase Storage 的 <code>catalog/species.json</code> 更新；離線時用 App 內建備份。</li>
+        <li><strong>圖鑑</strong>：用編號、中文或英文名搜尋，點牌卡看三圍、屬性、進化、技能，以及各等級 CP、HP。進化後等級 50 的最大 CP、HP 只作參考。圖鑑與招式資料可從 Firebase Storage 的 <code>catalog/v2/catalog.json</code> 更新；離線時用 App 內建備份。</li>
         <li><strong>訓練師等級</strong>：可選，在 IV 頁左上角或「設定」分頁調整。用來對齊摘要上的等級範圍，不進入 CP 公式。沒設定時，同一組星塵仍可能對應多個等級。</li>
         <li><strong>結果</strong>：百分比環、攻擊／防禦／體力 IV、等級滑桿與下一步建議。可開啟好夥伴加成，看該等級加成後的 CP、HP。範圍很寬時圓環會顯示「?」。</li>
         <li><strong>強化到指定等級</strong>：在 IV 詳情點一組，挑目標等級（Lv 1–51，有 40／50／51 快捷），看強化後的 CP、HP，以及需要的星塵、糖果與 XL 糖果。跟著 PvP 區塊的亮晶晶與淨化設定計算。</li>
@@ -193,7 +193,7 @@
       </figure>
 
       <h3 id="zh-results">4. 結果與收藏</h3>
-      <p>結果頁有百分比環、攻擊／防禦／體力 IV、等級滑桿與建議。範圍超過約 20 個百分點時，圓環顯示「?」。打開「好夥伴加成」後，該等級的 CP、HP 會標出加成後的數字。右上角星號把<strong>目前這一組</strong>存進收藏。左上角關閉回到 IV 頁。結果頁底部可能有橫幅廣告。往下捲是 PvP 區塊，見下一節。</p>
+      <p>結果頁有百分比環、攻擊／防禦／體力 IV、等級滑桿與建議。範圍超過約 20 個百分點時，圓環顯示「?」。打開「好夥伴加成」後，該等級的 CP、HP 會標出加成後的數字。右上角星號把<strong>目前這一組</strong>存進收藏。左上角關閉回到 IV 頁。截圖上辨識到的招式會列在「招式」區（手動輸入時不顯示）。結果頁底部可能有橫幅廣告。往下捲是 PvP 區塊，見下一節。</p>
       <p>在 IV 詳情表格點一組，表格下方會出現「強化到指定等級」：用 −／＋ 或 Lv 40、50、51 快捷挑目標等級，看強化後的 CP、HP 與星塵、糖果、XL 糖果。50 級以上靠正港好夥伴加成，不花資源。亮晶晶（星塵減半）與暗影的淨化設定在下方 PvP 區塊切換，這張卡會跟著算。</p>
       <p>底部「收藏」可搜尋名稱、編號或 CP。牌卡會標出這組 IV 在預設聯盟的最佳名次，例如「GL #1 · 100.0% · 哈克龍」。點牌卡會先顯示「載入中…」，再開結果，而且只呈現當初收藏的那一組 IV。收藏第一層沒有廣告。</p>
       <div class="manual-shots-row">
@@ -234,7 +234,7 @@
       </figure>
 
       <h3 id="zh-matchup">6. 相剋</h3>
-      <p>點底部「相剋」。「查對手」選對手的 1–2 個屬性，或在上方搜尋名字（也可打英文名或編號），下方會列出該用什麼屬性打（倍率越高越好）、別用哪些屬性。「我的隊伍」每個聯盟存一組 3 隻，卡片列出每隻的弱點、抗性與招式屬性；可在收藏長按、或結果頁 PvP 區塊加入。查對手時，隊伍卡會告訴你該派哪隻（用這隻打）、別派哪隻（別用），並標出被剋或招式被抵抗；會看隊員設定的招式，沒設招式就用隊員自身屬性。隊伍裡沒有能剋對手的隊員時，仍會推薦可以出戰的隊員並說明原因（抵抗對手招式、沒有屬性優勢，或全隊被剋時的相對最好），並建議可以帶哪些屬性的招式；沒有該避開的隊員時不顯示「別用」。沒設招式的隊員會以橘色標示，點卡片的「招　未設定」、編輯清單的那一列，或查對手的提示，就能直接設定招式。</p>
+      <p>點底部「相剋」。「查對手」選對手的 1–2 個屬性，或在上方搜尋名字（也可打英文名或編號），下方會列出該用什麼屬性打（倍率越高越好）、別用哪些屬性。「我的隊伍」每個聯盟存一組 3 隻，卡片列出每隻的弱點、抗性與招式屬性；可在收藏長按、或結果頁 PvP 區塊加入。查對手時，隊伍卡會告訴你該派哪隻（用這隻打）、別派哪隻（別用），並標出被剋或招式被抵抗；會看隊員設定的招式，沒設招式就用隊員自身屬性。隊伍裡沒有能剋對手的隊員時，仍會推薦可以出戰的隊員並說明原因（抵抗對手招式、沒有屬性優勢，或全隊被剋時的相對最好），並建議可以帶哪些屬性的招式；沒有該避開的隊員時不顯示「別用」。沒設招式的隊員會以橘色標示，點卡片的「招　未設定」、編輯清單的那一列，或查對手的提示，就能直接設定招式。招式頁全圖鑑都能從招式清單挑；舊隊伍只選了招式屬性的隊員會保留原本的屬性，並提示改選招式。</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="manual/manual-matchup-opponent-zh.png" width="402" height="874" alt="相剋分頁：查對手，選了地面">
@@ -268,7 +268,7 @@
       <ul>
         <li><strong>One screenshot</strong>: If the name, CP, HP, and power-up stardust are readable, the result opens immediately, including level 41 and up (11,000 stardust and more) and powered-up half levels. A missing value shows an error and is not saved to history.</li>
         <li><strong>Five tabs</strong>: Dex, IV, Saved, Matchups, and Settings. The icons are a paw, a function, a star, a shield, and a gear.</li>
-        <li><strong>Dex</strong>: Search by number or name, then open a page for base stats, type, evolution, moves, and CP/HP by level. Level-50 max CP and HP after evolution are reference figures. Catalog data can refresh from Firebase Storage (<code>catalog/species.json</code>) and uses the copy bundled in the app when offline.</li>
+        <li><strong>Dex</strong>: Search by number or name, then open a page for base stats, type, evolution, moves, and CP/HP by level. Level-50 max CP and HP after evolution are reference figures. Dex and move data can refresh from Firebase Storage (<code>catalog/v2/catalog.json</code>) and uses the copy bundled in the app when offline.</li>
         <li><strong>Trainer level</strong>: Optional, set on the IV tab or in Settings. It lines up the level range on the summary and is not part of the CP formula. With it unset, one stardust cost can still match more than one level.</li>
         <li><strong>Results</strong>: A percent ring, attack / defense / HP IVs, a level slider, and a next step. Buddy boost shows that level’s boosted CP and HP. A wide range shows “?” in the ring.</li>
         <li><strong>Power up to any level</strong>: Tap an IV set in the details table and pick a target level (Lv 1–51, with 40 / 50 / 51 shortcuts) to see the resulting CP and HP and the Stardust, Candy, and XL Candy needed. It follows the Lucky and purified settings in the PvP section.</li>
@@ -335,7 +335,7 @@
       </figure>
 
       <h3 id="en-results">4. Results and Saved</h3>
-      <p>Results show the percent ring, attack, defense, and HP IVs, a level slider, and a suggestion. A spread of about 20 points or more shows “?” in the ring. Buddy boost marks that level’s boosted CP and HP. The star at the top right saves <strong>the set you are viewing</strong>. Close returns to the IV tab. A banner may sit at the bottom. Scroll down for the PvP section, covered next.</p>
+      <p>Results show the percent ring, attack, defense, and HP IVs, a level slider, and a suggestion. A spread of about 20 points or more shows “?” in the ring. Buddy boost marks that level’s boosted CP and HP. The star at the top right saves <strong>the set you are viewing</strong>. Close returns to the IV tab. Moves recognized in the screenshot are listed under “Moves” (not shown for manual entry). A banner may sit at the bottom. Scroll down for the PvP section, covered next.</p>
       <p>Tap a set in the IV details table and “Power up to any level” appears under the table. Use − / + or the Lv 40, 50, and 51 shortcuts to pick a target level and see the resulting CP and HP and the Stardust, Candy, and XL Candy cost. Levels above 50 come from the Best Buddy boost and cost nothing. Lucky (half Stardust) and the purified switch for shadow Pokémon live in the PvP section below, and the card follows them.</p>
       <p>The Saved tab searches by name, number, or CP. Each card shows the set’s best rank in the default league, such as “GL #1 · 100.0% · Dragonair”. Tapping a card shows a loading state, then the result for only the IV set that was saved. The Saved list has no ad.</p>
       <div class="manual-shots-row">
@@ -376,7 +376,7 @@
       </figure>
 
       <h3 id="en-matchup">6. Matchups</h3>
-      <p>Open the Matchups tab. In Opponent, pick one or two of the opponent’s types, or search a name at the top (English name or number also works). Below you see which types hit it hard (higher is better) and which to avoid. In My Team, save a team of three for each league; each card lists weaknesses, resistances, and move types. Add members from a saved entry’s long-press menu or the PvP section of a result. The lookup also tells you which team member to send in and which to avoid, and why (weak to it, or moves resisted). It uses the moves you set for each member, or the member’s own types if none are set. When no member hits the opponent super effectively, it still suggests who to send in and why (resists its attacks, no type disadvantage, or the best of the rest when the whole team is at a disadvantage), and suggests move types to bring; the Avoid row is hidden when no one needs to be avoided. Members without moves are marked in orange; tap “Moves: Not set” on a card, the member’s row in the editor, or the hint in Opponent to set their moves.</p>
+      <p>Open the Matchups tab. In Opponent, pick one or two of the opponent’s types, or search a name at the top (English name or number also works). Below you see which types hit it hard (higher is better) and which to avoid. In My Team, save a team of three for each league; each card lists weaknesses, resistances, and move types. Add members from a saved entry’s long-press menu or the PvP section of a result. The lookup also tells you which team member to send in and which to avoid, and why (weak to it, or moves resisted). It uses the moves you set for each member, or the member’s own types if none are set. When no member hits the opponent super effectively, it still suggests who to send in and why (resists its attacks, no type disadvantage, or the best of the rest when the whole team is at a disadvantage), and suggests move types to bring; the Avoid row is hidden when no one needs to be avoided. Members without moves are marked in orange; tap “Moves: Not set” on a card, the member’s row in the editor, or the hint in Opponent to set their moves. The move picker lists moves for every species in the Dex; members saved with move types only keep those types, with a hint to pick their moves again.</p>
       <div class="manual-shots-row">
         <figure class="manual-shot">
           <img src="manual/manual-matchup-opponent-en.png" width="402" height="874" alt="Matchups tab: Opponent with Ground picked">
